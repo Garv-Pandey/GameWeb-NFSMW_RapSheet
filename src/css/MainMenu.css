@@ -1,0 +1,26 @@
+.stats{
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    height:30%;
+
+    border: white 2px solid;
+}
+
+.main-menu-heading {
+    position: absolute;
+    top:40%;
+    width: 100%;
+    height: 10%;
+
+    border: white 2px solid;
+}
+
+.pages {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 40%;
+
+    border: white 2px solid;
+}

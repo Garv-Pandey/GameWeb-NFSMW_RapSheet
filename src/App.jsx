@@ -1,11 +1,17 @@
 import './css/App.css'
-import { Portfolio } from './pages/portfolio'
+import { MainMenu } from './pages/MainMenu'
+import { Header } from './components/Header'
+import { Footer } from './components/Footer'
 
 function App() {
 
   return (
     <>
-      <Portfolio />
+      <div className='sheet'>
+        <Header title={"Rap Sheet"}/>
+        <MainMenu />
+        <Footer />
+      </div>
     </>
   )
 }
