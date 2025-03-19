@@ -1,9 +1,12 @@
+import { DottedLine } from "./DottedLine";
 import "../css/Footer.css";
 
-export function Footer(){
+export function Footer() {
     return (
+
         <footer className="footer">
             <h2>© 2021</h2>
         </footer>
+
     )
 }

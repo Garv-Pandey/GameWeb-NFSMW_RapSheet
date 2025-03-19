@@ -1,5 +1,6 @@
 import { Footer } from "../components/Footer"
 import { Header } from "../components/Header"
+import { DottedLine } from "../components/DottedLine"
 import { Link } from "react-router-dom"
 import '../css/MainMenu.css'
 
@@ -13,6 +14,7 @@ export function MainMenu() {
         <h2>Stats</h2>
       </ div>
 
+      <DottedLine className="top-line" />
 
       <div className="main-menu">
         <h3 className="heading">Main Menu:</h3>
@@ -23,7 +25,7 @@ export function MainMenu() {
 
       </div>
 
-
+      <DottedLine className="bottom-line" />
 
       <Footer />
 
