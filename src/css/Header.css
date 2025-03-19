@@ -3,15 +3,14 @@
     top: 0%;
     width: 100%;
     height: 10%;
+    padding: 0px 40px 0px 40px;
+
+    display: flex;
+    align-items: center;
 
     color: black;
     background-color: #9bd345; /* Neon Green */;
     border-style: solid;
     border-color: #9bd345; /* Neon Green */;
     -webkit-text-stroke: 2px black;
-    padding-left: 40px;
-    
-    
-    display: flex;
-    align-items: center;
 }
