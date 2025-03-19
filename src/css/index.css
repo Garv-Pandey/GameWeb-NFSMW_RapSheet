@@ -20,6 +20,21 @@ body {
 }
 
 
+/* react router link color and devoration removed*/
+a {
+    color: inherit; /* Inherits the text color from the parent */
+    text-decoration: none; /* Removes underline */
+}
+
+a:visited {
+    color: inherit; /* Prevents purple color for visited links */
+}
+
+a:hover {
+    color: lightgreen; /* Set hover color if needed */
+}
+
+
 /* orbitron-regular - latin */
 @font-face {
     font-display: swap;

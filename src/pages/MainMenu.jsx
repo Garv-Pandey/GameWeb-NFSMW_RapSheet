@@ -5,13 +5,20 @@ import { Link } from "react-router-dom"
 import '../css/MainMenu.css'
 
 export function MainMenu() {
+
+
   return (
     <div className="sheet">
       <Header title={"Rap Sheet"} />
 
 
       <div className="stats">
-        <h2>Stats</h2>
+        <h3 className="stats-text">Stats</h3>
+        <h3 className="stats-text">Stats</h3>
+        <h3 className="stats-text">Stats</h3>
+        <h3 className="stats-text">Stats</h3>
+        <h3 className="stats-text">Stats</h3>
+
       </ div>
 
       <DottedLine className="top-line" />
