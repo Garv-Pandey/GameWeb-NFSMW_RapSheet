@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+:root{
+    --green1: #a4e043;
+    --green2: #324615;
+    --green3: #27310d;
+}
+
 html,
 body {
     overflow-x: hidden;
@@ -11,12 +17,12 @@ body {
     height: 100%;
 
     background-color: black;
-    color: #9bd345;
+    color: var(--green1);
     font-family: "Orbitron", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    -webkit-text-stroke: 1px #9bd345;
+    -webkit-text-stroke: 1px var(--green1);
 }
 
 
