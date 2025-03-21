@@ -1,12 +1,35 @@
 .footer{
-    top: 90vh;
-    height: 10vh;
+    top: 90%;
+    height: 10%;
+    padding-left: 3%;
 
-    color: #9bd345;
-    background-color: black; /* Neon Green */;
-    -webkit-text-stroke: 1px #9bd345;
-    padding-left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: var(--fs2);
     
+    
+}
+
+.footer .button-panel{
+    width: 50%;
+    height: 100%;
+
+
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+
+    text-transform: none;
+    /* -webkit-text-stroke: 0px #9bd345; */
+}
+
+.footer .banner-panel{
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }

@@ -13,22 +13,25 @@ export function MainMenu() {
 
 
       <div className="stats">
-        <h3 className="stats-text">Stats</h3>
-        <h3 className="stats-text">Stats</h3>
-        <h3 className="stats-text">Stats</h3>
-        <h3 className="stats-text">Stats</h3>
-        <h3 className="stats-text">Stats</h3>
+        <h2 className="stats-text">Name: Garv Pandey</h2>
+        <h2 className="stats-text">Location: India</h2>
+        <h2 className="stats-text">Stats</h2>
+        <h2 className="stats-text">Name: Garv Pandey</h2>
+        <h2 className="stats-text">Stats</h2>
 
       </ div>
 
       <DottedLine className="top-line" />
 
       <div className="main-menu">
-        <h3 className="heading">Main Menu:</h3>
-        <Link to="/projects" className="link"><h3 className="page">Page 1</h3></Link>
-        <Link to="/projects" className="link"><h3 className="page">Page 2</h3></Link>
-        <Link to="/projects" className="link"><h3 className="page">Page 3</h3></Link>
-        <Link to="/projects" className="link"></Link>
+        <h2 className="heading">Main Menu:</h2>
+        <Link to="/projects" className="link"><h2 className="page">Page 1</h2></Link>
+        <Link to="/projects" className="link"><h2 className="page">Page 2</h2></Link>
+        <Link to="/projects" className="link"><h2 className="page">Page 3</h2></Link>
+        <Link to="/projects" className="link"><h2 className="page">Page 4</h2></Link>
+        <Link to="/projects" className="link"><h2 className="page">Page 5</h2></Link>
+        
+        
 
       </div>
 

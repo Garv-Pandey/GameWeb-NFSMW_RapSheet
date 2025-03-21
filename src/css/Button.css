@@ -1,0 +1,29 @@
+.button{
+    height: 60%;
+    padding: 0px 1% 0px 0.5%;
+    
+    background-color: var(--green2);
+    border: 3px solid var(--green1);
+    
+    
+    display: flex;
+    align-items: center;
+}
+
+.button .symbol{
+
+    height: 80%;
+    padding: 0px 7px 0px 7px;
+    border-radius: 5px;
+
+    background-color: black;
+    border: 3px solid var(--green1);
+
+    display: flex;
+    align-items: center;
+}
+
+.button .text{
+
+    padding: 0px 0px 0px 10px;
+}

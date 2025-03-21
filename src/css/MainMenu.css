@@ -1,25 +1,27 @@
 .sheet {
     width: 70vw;
-    min-width: 960px;
+    min-width: 640px;
+    max-width: 1200px;
     height: 100vh;
+    min-height: 480px;
+    max-height: 900px;
     margin: 0 auto;
 
     display: flex;
     flex-direction: column;
-    /* flex-flow: column nowrap; */
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
 }
 
 .stats {
-    flex: 1;
-    min-height: 30vh;
-    padding: 5vh 0vh 3vh 0vh;
+    height: 30%;
+    padding: 3% 0% 3% 0%;
 
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    font-size: var(--fs2);
 
     background: repeating-linear-gradient(
         -45deg,            
@@ -38,9 +40,9 @@
     to { background-position: 112.87px 0px; } 
 }
 .stats .stats-text{
-    height: 6vh;
-    min-height: 40px;
-    padding: 0vh 0vh 0vh 5vh;
+    height: 33%;
+    /* min-height: 40px; */
+    padding: 0% 0% 0% 3%;
 
     display: flex;
     align-items: center;
@@ -48,26 +50,32 @@
 
 
 .main-menu {
-    height: 50vh;
+    height: 50%;
 
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
+
+    font-size: var(--fs2);
     /* border: white 2px solid; */
 }
 
 .main-menu .heading {
-    height: 6vh;
-    padding: 0vh 0vh 0vh 5vh;
+    height: 13%;
+    padding: 0% 0% 0% 3%;
 
     display: flex;
     align-items: center;
 }
-
+.main-menu .link{
+    height: 13%;
+}
 .main-menu .page {
-    height: 6vh;
-    padding: 0vh 0vh 0vh 5vh;
+    height: 100%;
+    padding: 0% 0% 0% 3%;
+    /* margin: 2% 0% 0% 0%; */
+
 
     display: flex;
     align-items: center;
@@ -79,7 +87,7 @@
     display: inline-block;
     width: 25px;  /* Adjusted size */
     height: 25px; /* Adjusted size */
-    margin-right: 10px;
+    margin-right: 2%;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23a4e043'/%3E%3C/svg%3E");
     background-size: cover;
 }
@@ -88,7 +96,7 @@
     display: inline-block;
     width: 25px;
     height: 25px;
-    margin-right: 10px;
+    margin-right: 2%;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23a4e043'/%3E%3Ccircle cx='20' cy='20' r='12' fill='black'/%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;

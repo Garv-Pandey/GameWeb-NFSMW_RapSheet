@@ -1,15 +1,16 @@
 .header{
-    top: 0vh;
-    /* width: 100%; */
-    height: 10vh;
-    padding: 0px 40px 0px 40px;
+    top: 0%;
+    width: 100%;
+    height: 10%;
+    padding: 0% 0% 0% 3%;
 
     display: flex;
     align-items: center;
 
+    font-size: var(--fs1);
     color: black;
-    background-color: #9bd345; /* Neon Green */;
-    border-style: solid;
-    border-color: #9bd345; /* Neon Green */;
-    -webkit-text-stroke: 2px black;
+    background-color: var(--green1); /* Neon Green */;
+    
+    
+    -webkit-text-stroke: 1px black;
 }

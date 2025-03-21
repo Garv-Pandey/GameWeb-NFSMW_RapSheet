@@ -4,11 +4,17 @@
     box-sizing: border-box;
 }
 
-:root{
+:root {
     --green1: #a4e043;
     --green2: #324615;
     --green3: #27310d;
+    
+    /* for size greater than 640x480 px */
+    --fs1: 1.1rem;
+    --fs2: 1rem;
+    --fs3: 0.9rem;
 }
+
 
 html,
 body {
@@ -16,93 +22,45 @@ body {
     overflow-y: hidden;
     height: 100%;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: black;
     color: var(--green1);
     font-family: "Orbitron", sans-serif;
-    font-weight: 700;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    -webkit-text-stroke: 1px var(--green1);
+    letter-spacing: 3px;
+    /* -webkit-text-stroke: 0.5px var(--green1); */
 }
 
 
 /* react router link color and devoration removed*/
 a {
-    color: inherit; /* Inherits the text color from the parent */
-    text-decoration: none; /* Removes underline */
+    color: inherit;
+    /* Inherits the text color from the parent */
+    text-decoration: none;
+    /* Removes underline */
 }
 
 a:visited {
-    color: inherit; /* Prevents purple color for visited links */
+    color: inherit;
+    /* Prevents purple color for visited links */
 }
 
 a:hover {
-    color: lightgreen; /* Set hover color if needed */
+    color: lightgreen;
+    /* Set hover color if needed */
 }
 
 
-/* orbitron-regular - latin */
-@font-face {
-    font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Orbitron';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../assets/orbitron-v31-latin/orbitron-v31-latin-regular.woff2') format('woff2');
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* orbitron-500 - latin */
-@font-face {
-    font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Orbitron';
-    font-style: normal;
-    font-weight: 500;
-    src: url('../assets/orbitron-v31-latin/orbitron-v31-latin-500.woff2') format('woff2');
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* orbitron-600 - latin */
-@font-face {
-    font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Orbitron';
-    font-style: normal;
-    font-weight: 600;
-    src: url('../assets/orbitron-v31-latin/orbitron-v31-latin-600.woff2') format('woff2');
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* orbitron-700 - latin */
-@font-face {
-    font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Orbitron';
-    font-style: normal;
-    font-weight: 700;
-    src: url('../assets/orbitron-v31-latin/orbitron-v31-latin-700.woff2') format('woff2');
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* orbitron-800 - latin */
-@font-face {
-    font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Orbitron';
-    font-style: normal;
-    font-weight: 800;
-    src: url('../assets/orbitron-v31-latin/orbitron-v31-latin-800.woff2') format('woff2');
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
 
 /* orbitron-900 - latin */
 @font-face {
     font-display: swap;
-    /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
     font-family: 'Orbitron';
     font-style: normal;
     font-weight: 900;
     src: url('../assets/orbitron-v31-latin/orbitron-v31-latin-900.woff2') format('woff2');
-    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
