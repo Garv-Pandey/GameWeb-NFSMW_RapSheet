@@ -1,56 +1,69 @@
 .sheet {
-    width: 70vw;
-    min-width: 640px;
+    width: 100vw;
+    /* min-width: 640px; */
     max-width: 1200px;
-    height: 100vh;
-    min-height: 480px;
-    max-height: 900px;
+    /* height: 100vh; */
+    /* min-height: 480px; */
+    /* max-height: 900px; */
     margin: 0 auto;
 
     display: flex;
     flex-direction: column;
-    flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
+
+    @media (width >=1000px) {
+        width: 70vw;
+        /* height: 100vh; */
+    }
 }
 
 .stats {
-    height: 30%;
-    padding: 3% 0% 3% 0%;
+    min-height: 30vh;
+    padding: 1rem 0rem 1rem 0rem;
 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    font-size: var(--fs2);
-
-    background: repeating-linear-gradient(
-        -45deg,            
-        var(--green2) 0px,  
-        var(--green2) 10px, 
-        var(--green3) 10px,   
-        var(--green3) 20px    
-    );
-
+    background: repeating-linear-gradient(-45deg,
+            var(--green2) 0px,
+            var(--green2) 10px,
+            var(--green3) 10px,
+            var(--green3) 20px);
     background-size: 112.87px;
-    
-    animation:moveStripes 2s linear infinite;
+    animation: moveStripes 2s linear infinite;
+
+    font-size: var(--fs2);
+    @media (width>=600px) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
 @keyframes moveStripes {
-    from { background-position: 0 0; }
-    to { background-position: 112.87px 0px; } 
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 112.87px 0px;
+    }
 }
-.stats .stats-text{
-    height: 33%;
-    /* min-height: 40px; */
-    padding: 0% 0% 0% 3%;
+.stats .stats-text {
+    padding: 0.75rem 0rem 0.75rem 1rem;
+
+    /* margin: .5rem 0rem; */
 
     display: flex;
     align-items: center;
+    align-content: center;
+
+    @media (width>=600px) {
+        width: calc(50% - 0.75rem);
+    }
 }
 
 
 .main-menu {
-    height: 50%;
+    min-height: 40vh;
+    padding: 0rem 0rem 0rem 0rem;
 
     display: flex;
     flex-direction: column;
@@ -60,37 +73,39 @@
     font-size: var(--fs2);
     /* border: white 2px solid; */
 }
-
 .main-menu .heading {
-    height: 13%;
-    padding: 0% 0% 0% 3%;
+    /* height: 13%; */
+    padding: 0.75rem 0rem 0.75rem 1rem;
+    /* margin: .25rem 0rem; */
 
     display: flex;
     align-items: center;
 }
-.main-menu .link{
-    height: 13%;
-}
+/*"page" container is inside "link" container which is inside "main-menu" */
 .main-menu .page {
-    height: 100%;
-    padding: 0% 0% 0% 3%;
-    /* margin: 2% 0% 0% 0%; */
+    /* height: 100%; */
+    padding: 0.75rem 0rem 0.75rem 1rem;
+    /* margin: .25rem 0rem; */
 
 
     display: flex;
     align-items: center;
     /* border: 1px white solid; */
 }
-.page:before{
-    
+
+.page:before {
+
     content: "";
     display: inline-block;
-    width: 25px;  /* Adjusted size */
-    height: 25px; /* Adjusted size */
+    width: 25px;
+    /* Adjusted size */
+    height: 25px;
+    /* Adjusted size */
     margin-right: 2%;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23a4e043'/%3E%3C/svg%3E");
     background-size: cover;
 }
+
 .page:hover::before {
     content: "";
     display: inline-block;
@@ -101,11 +116,20 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-.page:hover{
+
+.page:hover {
     color: white;
     animation: pageHover 2s infinite step-start;
 }
+
 @keyframes pageHover {
-    0%, 100% {background-color: var(--green3);}
-    50% {background-color: var(--green2);}
+
+    0%,
+    100% {
+        background-color: var(--green3);
+    }
+
+    50% {
+        background-color: var(--green2);
+    }
 }

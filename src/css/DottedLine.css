@@ -1,9 +1,9 @@
 .dotted-line {
-    height: 1vh;
+    min-height: 1vh;
     background: repeating-linear-gradient(to right,
             #88AA44,
-            #88AA44 0.5vw,
-            transparent 0.5vw,
-            transparent 1vw);
+            #88AA44 1%,
+            transparent 1%,
+            transparent 2%);
     margin: 1vh 0;
 }

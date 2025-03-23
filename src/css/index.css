@@ -10,19 +10,20 @@
     --green3: #27310d;
     
     /* for size greater than 640x480 px */
-    --fs1: 1.1rem;
-    --fs2: 1rem;
-    --fs3: 0.9rem;
+    --fs1: 1rem;
+    --fs2: 0.9rem;
+    --fs3: 0.8rem;
 }
 
 
 html,
 body {
+    min-height: 100vh;
     overflow-x: hidden;
-    overflow-y: hidden;
-    height: 100%;
+    /* height: 100%; */
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 

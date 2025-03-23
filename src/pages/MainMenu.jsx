@@ -18,6 +18,7 @@ export function MainMenu() {
         <h2 className="stats-text">Stats</h2>
         <h2 className="stats-text">Name: Garv Pandey</h2>
         <h2 className="stats-text">Stats</h2>
+        <h2 className="stats-text">Stats</h2>
 
       </ div>
 
@@ -30,14 +31,14 @@ export function MainMenu() {
         <Link to="/projects" className="link"><h2 className="page">Page 3</h2></Link>
         <Link to="/projects" className="link"><h2 className="page">Page 4</h2></Link>
         <Link to="/projects" className="link"><h2 className="page">Page 5</h2></Link>
-        
-        
+
+
 
       </div>
 
-      <DottedLine className="bottom-line" />
+      {/* {console.log(window.innerWidth)} */}
 
-      <Footer />
+      {window.innerWidth > 1000 && <><DottedLine /> <Footer /></>}
 
     </ div>
 
