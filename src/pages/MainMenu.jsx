@@ -5,7 +5,11 @@ import { Link } from "react-router-dom"
 import '../css/MainMenu.css'
 
 export function MainMenu() {
-
+  const buttonData = [
+    { symbol: "↵", text: "Accept" },
+    { symbol: "Esc", text: "Back" },
+    { symbol: "M", text: "Toggle Sound" }
+  ]
 
   return (
     <div className="sheet">
@@ -38,7 +42,7 @@ export function MainMenu() {
 
       {/* {console.log(window.innerWidth)} */}
 
-      {window.innerWidth > 1000 && <><DottedLine /> <Footer /></>}
+      {window.innerWidth > 1000 && <><DottedLine /> <Footer buttons={buttonData} /></>}
 
     </ div>
 
