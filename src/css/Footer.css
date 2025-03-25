@@ -6,12 +6,13 @@
     flex-direction: row-reverse;
     flex-wrap: nowrap;
     align-items: baseline;
+    gap: 1%;
 
     font-size: var(--fs2);
 }
 
 .footer .button-panel {
-    width: 50%;
+    width: 59%;
 
     font-size: var(--fs3);
     display: flex;
@@ -25,30 +26,49 @@
 }
 
 .footer .banner-panel {
-    /* width: 50%; */
+    width: 40%;
 
     display: flex;
-    align-content: flex-start;
+    /* flex-flow: row-reverse; */
     justify-content: flex-end;
-    /* animation: slideUp linear infinite; */
-    /* animation-delay: 2000ms; */
-}
 
+
+    animation-name: slideUp;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
 @keyframes slideUp {
     0% {
-        transform: translateY(100%); /* Start below */
+        transform: translateY(100%);
+        /* Start below */
         opacity: 0;
     }
+
     10% {
-        transform: translateY(0%); /* Move to normal position */
+        transform: translateY(0%);
+        /* Move to normal position */
         opacity: 1;
     }
+
     90% {
-        transform: translateY(0%); /* Stay in normal position */
+        transform: translateY(0%);
+        /* Stay in normal position */
         opacity: 1;
     }
+
     100% {
-        transform: translateY(-100%); /* Exit from top */
+        transform: translateY(-100%);
+        /* Exit from top */
         opacity: 0;
     }
+}
+
+.footer .banner-panel .footer-banner{
+    /* flex: 1;   */
+    /* Allow it to take remaining space */
+    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

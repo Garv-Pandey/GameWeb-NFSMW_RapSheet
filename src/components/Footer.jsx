@@ -3,23 +3,31 @@ import { Button } from "./Button";
 import "../css/Footer.css";
 
 export function Footer({ buttons }) {
-    const texts = ["Text 1", "Text 2", "Text 3"];
-    const interval = 3000
+    const texts = ["Rockport P.D.", "Case File: MW-2807-GABB", "Text 3"];
     const [text_index, setText_index] = useState(0)
 
     useEffect(() => {
-        const interval_id = setInterval(() => {
-            setText_index(t => (t + 1) % texts.length)
-        }, interval);
+        // Select the element whose animation-delay you want
+        const banner_style = document.querySelector('.banner-panel');
+        // Get computed style
+        const animationDelay = getComputedStyle(banner_style).getPropertyValue('animation-duration');
 
-        return () => clearInterval(interval_id)
+        // Convert to number and default to 3000ms if not found
+        const intervalTime = animationDelay ? parseFloat(animationDelay) * 1000 : 3000;
+
+        // Set interval using retrieved value
+        const intervalId = setInterval(() => {
+            setText_index((t) => (t + 1) % texts.length);
+        }, intervalTime);
+
+        return () => clearInterval(intervalId);
     }, [])
 
     return (
 
         <div className="footer">
             <div className="banner-panel">
-                <h2 key={text_index} id="dynamic-text" className="banner-text" style={{ animation: `slideUp ${interval}ms linear infinite` }}>{texts[text_index]}</h2>
+                <h2 className="footer-banner">{texts[text_index]}</h2>
             </div>
 
             <div className="button-panel">
