@@ -7,13 +7,13 @@ export function Footer({ buttons }) {
     const [text_index, setText_index] = useState(0)
 
     useEffect(() => {
-        // Select the element whose animation-delay you want
+        // Select the element whose animation-duration you want
         const banner_style = document.querySelector('.banner-panel');
         // Get computed style
-        const animationDelay = getComputedStyle(banner_style).getPropertyValue('animation-duration');
+        const animationDuration = getComputedStyle(banner_style).getPropertyValue('animation-duration');
 
         // Convert to number and default to 3000ms if not found
-        const intervalTime = animationDelay ? parseFloat(animationDelay) * 1000 : 3000;
+        const intervalTime = animationDuration ? parseFloat(animationDuration) * 1000 : 3000;
 
         // Set interval using retrieved value
         const intervalId = setInterval(() => {
