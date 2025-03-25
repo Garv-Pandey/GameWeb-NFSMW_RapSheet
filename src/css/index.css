@@ -35,6 +35,7 @@ body {
     @media (width>1000px) {
         justify-content: center;
     }
+
 }
 
 ::-webkit-scrollbar {
