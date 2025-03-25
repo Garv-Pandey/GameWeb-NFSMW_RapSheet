@@ -8,7 +8,7 @@
     --green1: #a4e043;
     --green2: #324615;
     --green3: #27310d;
-    
+
     /* for size greater than 640x480 px */
     --fs1: 1rem;
     --fs2: 0.9rem;
@@ -20,11 +20,9 @@ html,
 body {
     min-height: 100vh;
     overflow-x: hidden;
-    /* height: 100%; */
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
     background-color: black;
@@ -33,7 +31,10 @@ body {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 3px;
-    /* -webkit-text-stroke: 0.5px var(--green1); */
+
+    @media (width>1000px) {
+        justify-content: center;
+    }
 }
 
 

@@ -1,10 +1,6 @@
 .sheet {
     width: 100vw;
-    /* min-width: 640px; */
     max-width: 1200px;
-    /* height: 100vh; */
-    /* min-height: 480px; */
-    /* max-height: 900px; */
     margin: 0 auto;
 
     display: flex;
@@ -14,10 +10,10 @@
 
     @media (width >=1000px) {
         width: 70vw;
-        /* height: 100vh; */
     }
 }
 
+/* STATS */
 .stats {
     min-height: 30vh;
     padding: 1rem 0rem 1rem 0rem;
@@ -31,12 +27,14 @@
     animation: moveStripes 2s linear infinite;
 
     font-size: var(--fs2);
+
     @media (width>=600px) {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
 }
+
 @keyframes moveStripes {
     from {
         background-position: 0 0;
@@ -46,6 +44,7 @@
         background-position: 112.87px 0px;
     }
 }
+
 .stats .stats-text {
     padding: 0.75rem 0rem 0.75rem 1rem;
 
@@ -60,10 +59,11 @@
     }
 }
 
-
+/* MAIN MENU */
 .main-menu {
     min-height: 40vh;
     padding: 0rem 0rem 0rem 0rem;
+
 
     display: flex;
     flex-direction: column;
@@ -72,7 +72,12 @@
 
     font-size: var(--fs2);
     /* border: white 2px solid; */
+
+    @media (width>1000px){
+        max-height: 40vh;
+    }
 }
+
 .main-menu .heading {
     /* height: 13%; */
     padding: 0.75rem 0rem 0.75rem 1rem;
@@ -81,8 +86,16 @@
     display: flex;
     align-items: center;
 }
+
+.main-menu .scrollable-menu {
+
+    @media (width > 1000px) {
+        overflow-y: scroll;
+    }
+}
+
 /*"page" container is inside "link" container which is inside "main-menu" */
-.main-menu .page {
+.main-menu .scrollable-menu .page {
     /* height: 100%; */
     padding: 0.75rem 0rem 0.75rem 1rem;
     /* margin: .25rem 0rem; */
