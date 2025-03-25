@@ -37,6 +37,41 @@ body {
     }
 }
 
+::-webkit-scrollbar {
+    width: 24px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--green2);
+    /* border:3px black solid; */
+    border-left: 6px black solid;
+    border-right: 6px black solid;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: black;
+    border: 9px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-button:single-button {
+    height: 20px;
+    width: 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* Up Arrow */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='10,28 20,12 30,28' fill='%23a4e043'/%3E%3C/svg%3E");
+}
+
+/* Down Arrow */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='10,12 20,28 30,12' fill='%23a4e043'/%3E%3C/svg%3E");
+}
+
 
 /* react router link color and devoration removed*/
 a {
@@ -50,13 +85,6 @@ a:visited {
     color: inherit;
     /* Prevents purple color for visited links */
 }
-
-a:hover {
-    color: lightgreen;
-    /* Set hover color if needed */
-}
-
-
 
 /* orbitron-900 - latin */
 @font-face {
