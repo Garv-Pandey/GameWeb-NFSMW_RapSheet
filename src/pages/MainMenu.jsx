@@ -17,10 +17,7 @@ export function MainMenu() {
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
-
-    // Add event listener
     window.addEventListener("resize", handleResize);
-
     // Cleanup listener on unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);

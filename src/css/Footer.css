@@ -22,7 +22,7 @@
     gap: 1rem;
 
     text-transform: none;
-    /* -webkit-text-stroke: 0px #9bd345; */
+    animation: fadeIn 0.5s linear;
 }
 
 .footer .banner-panel {
@@ -38,6 +38,16 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
+
+.footer .banner-panel .footer-banner{
+    /* flex: 1;   */
+    /* Allow it to take remaining space */
+    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 @keyframes slideUp {
     0% {
         transform: translateY(100%);
@@ -64,11 +74,11 @@
     }
 }
 
-.footer .banner-panel .footer-banner{
-    /* flex: 1;   */
-    /* Allow it to take remaining space */
-    
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
