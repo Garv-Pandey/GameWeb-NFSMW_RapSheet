@@ -3,7 +3,7 @@ import { Button } from "./Button";
 import "../css/Footer.css";
 
 export function Footer({ buttons }) {
-    const texts = ["Rockport P.D.", "Case File: MW-2807-GABB", "Text 3"];
+    const texts = ["Rockport P.D.", "NFSMW-RapSheet", "Status: Building"];
     const [text_index, setText_index] = useState(0)
 
     useEffect(() => {

@@ -7,9 +7,8 @@ import '../css/MainMenu.css'
 
 export function MainMenu() {
   const buttonData = [
-    { symbol: "↵", text: "Accept" },
     { symbol: "Esc", text: "Back" },
-    { symbol: "M", text: "Toggle Sound" }
+    { symbol: "↵", text: "Accept" },
   ]
 
   // event listner which causes rerendre on window size change for footer condition
@@ -28,12 +27,12 @@ export function MainMenu() {
 
 
       <div className="stats">
-        <h2 className="stats-text">Name: Garv Pandey</h2>
-        <h2 className="stats-text">Location: India</h2>
-        <h2 className="stats-text">Stats</h2>
-        <h2 className="stats-text">Name: Garv Pandey</h2>
-        <h2 className="stats-text">Stats</h2>
-        <h2 className="stats-text">Stats</h2>
+        <h2 className="stats-text">Name: gabbu</h2>
+        <h2 className="stats-text">Bounty: 403,300</h2>
+        <h2 className="stats-text">Cost To State: 399,750</h2>
+        <h2 className="stats-text">Fines Due: 7,200</h2>
+        <h2 className="stats-text">Pursuits Evaded: 8</h2>
+        <h2 className="stats-text">Busted: 0</h2>
 
       </ div>
 
@@ -42,13 +41,12 @@ export function MainMenu() {
       <div className="main-menu">
         <h2 className="heading">Main Menu:</h2>
         <div className="scrollable-menu">
-          <Link to="/projects" className="link"><h2 className="page">Page 1</h2></Link>
-          <Link to="/projects" className="link"><h2 className="page">Page 2</h2></Link>
-          <Link to="/projects" className="link"><h2 className="page">Page 3</h2></Link>
-          <Link to="/projects" className="link"><h2 className="page">Page 4</h2></Link>
-          <Link to="/projects" className="link"><h2 className="page">Page 6</h2></Link>
-          <Link to="/projects" className="link"><h2 className="page">Page 7</h2></Link>
-          <Link to="/projects" className="link"><h2 className="page">Page 8</h2></Link>
+          <Link to="/projects" className="link"><h2 className="page">Summary</h2></Link>
+          <Link to="/projects" className="link"><h2 className="page">Vehicle Database</h2></Link>
+          <Link to="/projects" className="link"><h2 className="page">Infractions</h2></Link>
+          <Link to="/projects" className="link"><h2 className="page">Cost To State</h2></Link>
+          <Link to="/projects" className="link"><h2 className="page">Top 5 Pursuits</h2></Link>
+          <Link to="/projects" className="link"><h2 className="page">Rankings</h2></Link>
         </div>
 
 
