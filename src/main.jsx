@@ -1,15 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-// import App from './App.jsx'
 import './css/index.css'
 import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom'
 import { MainMenu } from './pages/MainMenu.jsx'
-import { Projects } from './pages/Projects.jsx'
+import { Summary } from './pages/Summary.jsx'
 
 
 const router = createBrowserRouter([
   { path: "/", element: <MainMenu /> },
-  { path: "/projects", element: <Projects /> }
+  { path: "/summary", element: <Summary /> }
 
 ])
 
