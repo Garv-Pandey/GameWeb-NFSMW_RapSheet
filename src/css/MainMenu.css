@@ -125,8 +125,7 @@
 }
 
 .main-menu .scrollable-menu .link .page {
-    animation: textLoadIn 200ms linear none;
-
+    animation: textLoadIn 200ms linear none
 }
 
 .main-menu .scrollable-menu .link .page-hidden {
