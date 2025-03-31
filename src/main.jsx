@@ -4,11 +4,13 @@ import './css/index.css'
 import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom'
 import { MainMenu } from './pages/MainMenu.jsx'
 import { Summary } from './pages/Summary.jsx'
+import { VehicleDatabase } from './pages/VehicleDatabase.jsx'
 
 
 const router = createBrowserRouter([
   { path: "/", element: <MainMenu /> },
-  { path: "/summary", element: <Summary /> }
+  { path: "/summary", element: <Summary /> },
+  { path: "/vehicle-database", element: <VehicleDatabase /> },
 
 ])
 

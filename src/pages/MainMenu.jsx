@@ -24,7 +24,7 @@ export function MainMenu() {
   const [headingClass, setHeadingClass] = useState("heading-hidden")
 
   const pages = [{ link: "/summary", text: "Summary" },
-  { link: "/projects", text: "Vehicle Database" },
+  { link: "/vehicle-database", text: "Vehicle Database" },
   { link: "/infractions", text: "Infractions" },
   { link: "/cost-to-state", text: "Cost To State" },
   { link: "/top-pursuits", text: "Top 5 Pursuits" },

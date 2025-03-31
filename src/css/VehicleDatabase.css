@@ -1,0 +1,124 @@
+.vehicleData {
+    width: calc(100vw - 24px);
+    min-height: 90vh;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+
+    @media (width >=1000px) {
+        width: 70vw;
+    }
+}
+
+.top {
+    padding: 0.5rem 0rem 0.5rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+.top .top-text,
+.top .top-text-hidden,
+.top .top-text-white {
+    padding: 0rem 0rem;
+    font-size: var(--fs2);
+}
+
+.top .top-text-white {
+    color: white;
+}
+
+.top .top-text {
+    animation: textLoadIn 200ms linear none;
+}
+
+.top .top-text-hidden {
+    opacity: 0;
+}
+
+.dotted-line {
+    animation-delay: 700ms;
+}
+
+.scrollable-data {
+    height: 45vh;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    font-size: var(--fs2);
+
+    overflow-y: auto;
+    
+    opacity: 0;
+    transition: opacity 200ms linear;
+}
+
+.scrollable-data.visible{
+    opacity: 1;
+}
+
+.vehicle-info {
+    padding: 1rem 0rem 1rem 0rem;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    @media (width>=600px) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+.vehicle-info .heading {
+    width: 100%;
+
+    padding: 0.25rem 0rem 0.25rem 1rem;
+
+    background-color: var(--green3);
+
+    display: flex;
+    align-items: center;
+
+    @media (width>=600px) {
+        width: 50%;
+    }
+}
+
+.vehicle-info .info {
+    width: 100%;
+    padding: 0rem 0rem 0rem 1rem;
+
+    display: flex;
+    align-items: center;
+
+    @media (width>=600px) {
+        width: 50%;
+    }
+}
+
+@keyframes textLoadIn {
+    0% {
+        opacity: 0;
+        color: white;
+    }
+
+    60% {
+        opacity: 1;
+        color: white;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
