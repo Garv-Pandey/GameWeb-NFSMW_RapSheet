@@ -1,3 +1,7 @@
+ul {
+    list-style-type: none;
+}
+
 .summary {
     width: calc(100vw - 24px);
     max-width: 1200px;
@@ -15,23 +19,48 @@
 }
 
 .summary .summary-scrollable {
-    max-height: 70vh;
-    
+    max-height: 73vh;
+
     @media (width >=1000px) {
         overflow-y: auto;
     }
 }
 
-.summary .top-part {
+.top {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
 }
 
-.summary .summary-banner {
-    /* min-height: 20vh; */
-    height: 25vh;
-    padding: 1rem 0rem 0rem 1rem;
+.top .top-text,
+.top .top-text-white,
+.top .top-text-hidden {
+    padding: 0rem 0rem 0rem 1rem;
 
+}
+
+.top .top-text,
+.top .top-text-white {
+    animation: textLoadIn 200ms linear;
+}
+
+.top .top-text-white {
+    color: white;
+}
+
+.top .top-text-hidden {
+    opacity: 0;
+}
+
+.dotted-line.banner {
+    animation-delay: 700ms;
+}
+
+.summary .summary-banner,
+.summary .summary-banner-hidden {
+    min-height: 20vh;
+    padding: 1rem 1rem 1rem 2rem;
     background: repeating-linear-gradient(-45deg,
             var(--green2) 0px,
             var(--green2) 10px,
@@ -39,16 +68,62 @@
             var(--green3) 20px);
     background-size: 112.87px;
     animation: moveStripes 2s linear infinite;
-
-    overflow-y: auto;
+    opacity: 0;
+    /* Initially transparent */
+    transition: opacity 100ms linear;
+    /* Transition for opacity */
 }
 
-.summary .bottom-part {
+.summary .summary-banner {
+    opacity: 1;
+}
+
+.summary .bottom {
+    min-height: 30vh;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
 }
 
-.summary .data-block {
+.summary .bottom .data-block,
+.summary .bottom .data-block-hidden {
     min-width: 50%;
-    padding: 0rem 0rem 0rem 1rem;
+    padding: 0rem 1rem 1rem 1rem;
+
+    opacity: 0;
+    transition: opacity 200ms linear;
+}
+
+.summary .bottom .data-block {
+    opacity: 1;
+}
+
+.dotted-line.footer {
+    animation-delay: 1500ms;
+}
+
+@keyframes moveStripes {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 112.87px 0px;
+    }
+}
+
+@keyframes textLoadIn {
+    0% {
+        opacity: 0;
+        color: white;
+    }
+
+    60% {
+        opacity: 1;
+        color: white;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
