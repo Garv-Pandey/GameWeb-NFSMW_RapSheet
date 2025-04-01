@@ -5,12 +5,14 @@ import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom'
 import { MainMenu } from './pages/MainMenu.jsx'
 import { Summary } from './pages/Summary.jsx'
 import { VehicleDatabase } from './pages/VehicleDatabase.jsx'
+import { Infractions } from './pages/Infractions.jsx'
 
 
 const router = createBrowserRouter([
   { path: "/", element: <MainMenu /> },
   { path: "/summary", element: <Summary /> },
   { path: "/vehicle-database", element: <VehicleDatabase /> },
+  { path: "/infractions", element: <Infractions /> },
 
 ])
 

@@ -1,0 +1,81 @@
+.infractions {
+    width: calc(100vw - 24px);
+    min-height: 90vh;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+
+    @media (width >=1000px) {
+        width: 70vw;
+    }
+}
+
+.top {
+    padding: 0.5rem 0rem 0.5rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+.top .top-text,
+.top .top-text-hidden,
+.top .top-text-white {
+    padding: 0rem 0rem;
+    font-size: var(--fs2);
+}
+
+.top .top-text-white {
+    color: white;
+}
+
+.top .top-text {
+    animation: textLoadIn 200ms linear none;
+}
+
+.top .top-text-hidden {
+    opacity: 0;
+}
+
+.infractions-data {
+    height: 40vh;
+    padding: 0.5rem 0rem;
+
+    overflow: auto;
+
+    font-size: var(--fs2);
+}
+
+table{
+    width: 100%;
+}
+
+th{
+    width: 100%;
+    background-color: var(--green3);
+    text-align: left;
+}
+
+th:nth-child(1){
+    padding: 0rem 0rem 0rem 1rem;
+    width: 60%;
+}
+td:nth-child(1){
+    padding: 0rem 0rem 0rem 1rem;
+    width: 60%;
+}
+th:nth-child(2),
+th:nth-child(3) {
+    width: 20%;
+    text-align: center;
+}
+
+
+.odd-row{
+    background-color: var(--green3);
+}
