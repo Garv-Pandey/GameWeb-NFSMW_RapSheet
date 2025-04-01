@@ -1,0 +1,79 @@
+.top-pursuits {
+    width: calc(100vw - 24px);
+    min-height: 90vh;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+
+    @media (width >=1000px) {
+        width: 70vw;
+    }
+}
+
+.top-pursuits .top {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    color: white;
+}
+
+.top-pursuits .top h2 {
+    width: 50%;
+}
+
+.top-pursuits .top .bounty {
+    display: flex;
+    justify-content: end;
+}
+
+.top-pursuits .top .top-text,
+.top-pursuits .top .top-text-hidden,
+.top-pursuits .top .top-text-white {
+    padding: 0rem 0rem;
+    font-size: var(--fs2);
+}
+
+.top-pursuits .top .top-text-white {
+    color: white;
+}
+
+.top-pursuits .top .top-text {
+    animation: textLoadIn 200ms linear none;
+}
+
+.top-pursuits .top .top-text-hidden {
+    opacity: 0;
+}
+
+.top-pursuits .pursuit-data {
+    height: 60vh;
+    
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    
+}
+
+.top-pursuits .data {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+
+    padding: 0.5rem 0rem;
+}
+
+.top-pursuits .stat{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.top-pursuits .stat h2{
+    width: 50%;
+}
