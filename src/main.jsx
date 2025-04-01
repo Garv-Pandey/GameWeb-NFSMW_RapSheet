@@ -6,6 +6,7 @@ import { MainMenu } from './pages/MainMenu.jsx'
 import { Summary } from './pages/Summary.jsx'
 import { VehicleDatabase } from './pages/VehicleDatabase.jsx'
 import { Infractions } from './pages/Infractions.jsx'
+import { CostToState } from './pages/CostToState.jsx'
 
 
 const router = createBrowserRouter([
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   { path: "/summary", element: <Summary /> },
   { path: "/vehicle-database", element: <VehicleDatabase /> },
   { path: "/infractions", element: <Infractions /> },
+  { path: "/cost-to-state", element: <CostToState /> },
 
 ])
 
