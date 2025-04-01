@@ -91,7 +91,7 @@ export function VehicleDatabase() {
 
             <ul className="top">
                 {topText.map((text, index) => (
-                    <li className={topTextAnimeClassSetter(index, text, topTextVisible)}><h2>{text}</h2></li>
+                    <li key={index} className={topTextAnimeClassSetter(index, text, topTextVisible)}><h2>{text}</h2></li>
                 ))}
             </ul>
 
