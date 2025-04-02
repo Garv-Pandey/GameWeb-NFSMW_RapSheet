@@ -94,5 +94,5 @@ a:visited {
     font-family: 'Orbitron';
     font-style: normal;
     font-weight: 900;
-    src: url('../assets/orbitron-v31-latin/orbitron-v31-latin-900.woff2') format('woff2');
+    src: url('./assets/orbitron-v31-latin/orbitron-v31-latin-900.woff2') format('woff2');
 }
