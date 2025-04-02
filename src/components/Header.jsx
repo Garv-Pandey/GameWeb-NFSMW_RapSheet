@@ -1,8 +1,8 @@
-import "../css/Header.css"
+import styles from  "./Header.module.css"
 
 export function Header({ title }) {
     return (
-        <header className="header">
+        <header className={styles.header}>
             <h1>{title}</h1>
         </header>
     )

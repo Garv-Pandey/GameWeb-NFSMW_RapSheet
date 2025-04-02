@@ -1,4 +1,4 @@
-import "../css/Button.css"
+import styles from "./Button.module.css"
 
 export function Button({ symbol, text }) {
 
@@ -7,12 +7,12 @@ export function Button({ symbol, text }) {
     }
 
     return (
-        <button type="button" onClick={handleClick} className="button">
-            <div className="symbol">
+        <button type={styles.button} onClick={handleClick} className={styles.button}>
+            <div className={styles.symbol}>
                 <h2>{symbol}</h2>
             </div>
 
-            <div className="text">
+            <div className={styles.text}>
                 <h2>{text}</h2>
             </div>
 

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import { Header } from "../components/Header"
 import { DottedLine } from "../components/DottedLine"
 import { Footer } from "../components/Footer"
-import "../css/Summary.css"
+import styles from "./Summary.module.css"
 
 export function Summary() {
     const buttonData = [
@@ -20,7 +20,7 @@ export function Summary() {
     ]
     const [topTextVisible, setTopTextVisible] = useState([])
 
-    const [bannerClass, setBannerClass] = useState("summary-banner-hidden")
+    const [bannerClass, setBannerClass] = useState(styles.summary_banner_hidden)
 
     const bottomTextBlocks = [
         ["Infractions", "Unserverd: 31", "Served: 0"],
@@ -43,7 +43,7 @@ export function Summary() {
         })
 
         setTimeout(() => {
-            setBannerClass("summary-banner")
+            setBannerClass(styles.summary_banner)
         }, 900);
 
         bottomTextBlocks.forEach((block, index) => {
@@ -59,30 +59,30 @@ export function Summary() {
 
     const topTextAnimeClassSetter = (index, text, topTextVisible) => {
         if (topTextVisible.includes(text) && [0, 1].includes(index)) {
-            return "top-text-white"
+            return styles.top_text_white
         }
 
         if (topTextVisible.includes(text)) {
-            return "top-text"
+            return styles.top_text
         }
 
-        return "top-text-hidden"
+        return styles.top_text_hidden
     }
 
     const bottomBlockAnimeSetter = (index, block, bottomTextBlocks) => {
         if (dataBlocksIndexVisible.includes(index)) {
-            return "data-block"
+            return styles.data_block
         }
 
-        return "data-block-hidden"
+        return styles.data_block_hidden
     }
 
     return (
-        <div className="summary">
-            <Header title="Summary" />
+        <div className={styles.summary}>
+            <Header title={"Summary"} />
 
-            <div className="summary-scrollable">
-                <ul className="top">
+            <div className={styles.summary_scrollable}>
+                <ul className={styles.top}>
 
                     {topText.map((text, index) => (
                         <li key={index} className={topTextAnimeClassSetter(index, text, topTextVisible)}>
@@ -92,15 +92,15 @@ export function Summary() {
 
                 </ul>
 
-                <DottedLine className={"banner"} />
+                <DottedLine className={styles.banner} />
 
                 <div className={bannerClass}>
                     <h2>Minor COde INfractions: Perform Routine Check For Citations and Infractions if encountered</h2>
                 </div>
 
-                <DottedLine className={"banner"} />
+                <DottedLine className={styles.banner} />
 
-                <ul className="bottom">
+                <ul className={styles.bottom}>
 
                     {bottomTextBlocks.map((textBlock, index) => (
                         <li key={index} className={bottomBlockAnimeSetter(index, textBlock, bottomTextBlocks)}>
@@ -115,7 +115,7 @@ export function Summary() {
                 </ul>
             </div>
 
-            {window.innerWidth > 1000 && <><DottedLine className={"footer"}/> <Footer buttons={buttonData} /></>}
+            {window.innerWidth > 1000 && <><DottedLine className={styles.footer}/> <Footer buttons={buttonData} /></>}
         </div>
 
 

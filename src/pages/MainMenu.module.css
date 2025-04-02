@@ -14,7 +14,7 @@
 }
 
 /* STATS */
-.stats {
+.stats_banner {
     min-height: 30vh;
     padding: 0.5rem 0rem 0.5rem 0rem;
 
@@ -40,9 +40,9 @@
 
 }
 
-.stats-text,
-.stats-text-white,
-.stats-text-hidden {
+.stats_text,
+.stats_text_white,
+.stats_text_hidden {
     padding: 0.5rem 0rem 0.5rem 1rem;
 
     display: flex;
@@ -55,21 +55,21 @@
 
 }
 
-.stats-text,
-.stats-text-white {
+.stats_text,
+.stats_text_white {
     animation: textLoadIn 200ms linear none;
 }
 
-.stats-text-white {
+.stats_text_white {
     color: white;
 }
 
-.stats-text-hidden {
+.stats_text_hidden {
     opacity: 0;
 }
 
 /* MAIN MENU */
-.main-menu {
+.main_menu {
     min-height: 40vh;
 
     display: flex;
@@ -85,54 +85,54 @@
 
 }
 
-.main-menu .heading,
-.main-menu .heading-hidden {
+.main_menu .heading,
+.main_menu .heading_hidden {
     padding: 0.5rem 0rem 0.5rem 1rem;
 
     display: flex;
     align-items: center;
 }
 
-.main-menu .heading {
+.main_menu .heading {
     animation: textLoadIn 200ms linear none;
 }
 
-.main-menu .heading-hidden {
+.main_menu .heading_hidden {
     opacity: 0;
 }
 
-.main-menu .scrollable-menu {
+.main_menu .scrollable_menu {
     @media (width > 1000px) {
         overflow-y: auto;
     }
 }
 
 /*"page" container is inside "link" container which is inside "main-menu" */
-.main-menu .scrollable-menu .link {
+.main_menu .scrollable_menu .link {
     display: block;
 }
 
-.main-menu .scrollable-menu .link:hover {
+.main_menu .scrollable_menu .link:hover {
     color: white;
     animation: pageHover 2s infinite step-start;
 }
 
-.main-menu .scrollable-menu .link .page,
-.main-menu .scrollable-menu .link .page-hidden {
+.main_menu .scrollable_menu .link .page,
+.main_menu .scrollable_menu .link .page_hidden {
     display: flex;
     padding: 0.5rem 0rem 0.5rem 1rem;
     align-items: center;
 }
 
-.main-menu .scrollable-menu .link .page {
+.main_menu .scrollable_menu .link .page {
     animation: textLoadIn 200ms linear none
 }
 
-.main-menu .scrollable-menu .link .page-hidden {
+.main_menu .scrollable_menu .link .page_hidden {
     opacity: 0;
 }
 
-.main-menu .scrollable-menu .link:hover .page::before {
+.main_menu .scrollable_menu .link:hover .page::before {
     content: "";
     /* display: inline-block; */
     width: 25px;
@@ -143,7 +143,7 @@
     background-repeat: no-repeat;
 }
 
-.main-menu .scrollable-menu .link .page::before {
+.main_menu .scrollable_menu .link .page::before {
     content: "";
     /* display: inline-block; */
     width: 25px;
@@ -153,7 +153,7 @@
     background-size: cover;
 }
 
-.dotted-line{
+.dotted_line{
     animation-delay: 800ms;
 }
 

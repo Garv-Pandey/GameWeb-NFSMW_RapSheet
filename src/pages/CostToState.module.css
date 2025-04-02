@@ -1,4 +1,4 @@
-.cost-to-state {
+.cost_to_state {
     width: calc(100vw - 24px);
     min-height: 90vh;
     max-width: 1200px;
@@ -14,7 +14,7 @@
     }
 }
 
-.cost-to-state .top {
+.cost_to_state .top {
     padding: 0.5rem 1rem 0.5rem 1rem;
 
     display: flex;
@@ -25,35 +25,35 @@
     color: white;
 }
 
-.cost-to-state .top h2 {
+.cost_to_state .top h2 {
     width: 50%;
 }
 
-.cost-to-state .top .bounty {
+.cost_to_state .top .bounty {
     display: flex;
     justify-content: end;
 }
 
-.cost-to-state .top .top-text,
-.cost-to-state .top .top-text-hidden,
-.cost-to-state .top .top-text-white {
+.cost_to_state .top .top_text,
+.cost_to_state .top .top_text_hidden,
+.cost_to_state .top .top_text_white {
     padding: 0rem 0rem;
     font-size: var(--fs2);
 }
 
-.cost-to-state .top .top-text-white {
+.cost_to_state .top .top_text_white {
     color: white;
 }
 
-.cost-to-state .top .top-text {
+.cost_to_state .top .top_text {
     animation: textLoadIn 200ms linear none;
 }
 
-.cost-to-state .top .top-text-hidden {
+.cost_to_state .top .top_text_hidden {
     opacity: 0;
 }
 
-.cost-to-state .cost-data {
+.cost_to_state .cost_data {
     height: 50vh;
     padding: 0.5rem 0rem;
 
@@ -62,47 +62,47 @@
     font-size: var(--fs2);
 }
 
-.cost-to-state .cost-data table {
+.cost_to_state .cost_data table {
     width: 100%;
 }
 
-.cost-to-state .cost-data th {
+.cost_to_state .cost_data th {
     width: 100%;
     background-color: var(--green3);
     text-align: left;
 }
 
-.cost-to-state .cost-data th:nth-child(1),
-.cost-to-state .cost-data th:nth-child(3) {
+.cost_to_state .cost_data th:nth-child(1),
+.cost_to_state .cost_data th:nth-child(3) {
     text-align: center;
     width: 20%;
 }
 
-.cost-to-state .cost-data th:nth-child(2) {
+.cost_to_state .cost_data th:nth-child(2) {
     padding: 0rem 0rem 0rem 1rem;
     text-align: start;
     width: 60%;
 }
 
-.cost-to-state .cost-data td:nth-child(1),
-.cost-to-state .cost-data td:nth-child(3) {
+.cost_to_state .cost_data td:nth-child(1),
+.cost_to_state .cost_data td:nth-child(3) {
     padding: 0rem 0rem 0rem 1rem;
     width: 20%;
     text-align: center;
     color: white;
 }
 
-.cost-to-state .cost-data td:nth-child(2) {
+.cost_to_state .cost_data td:nth-child(2) {
     padding: 0rem 0rem 0rem 1rem;
     text-align: start;
     width: 60%;
 }
 
-.cost-to-state .odd-row {
+.cost_to_state .odd_row {
     background-color: var(--green3);
 }
 
-.cost-to-state .total-cost {
+.cost_to_state .total_cost {
     text-align: end;
     color: white;
 }

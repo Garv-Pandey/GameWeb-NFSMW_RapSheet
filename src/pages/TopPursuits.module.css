@@ -1,4 +1,4 @@
-.top-pursuits {
+.top_pursuits {
     width: calc(100vw - 24px);
     min-height: 90vh;
     max-width: 1200px;
@@ -14,7 +14,7 @@
     }
 }
 
-.top-pursuits .top {
+.top_pursuits .top {
     padding: 0.5rem 1rem 0.5rem 1rem;
 
     display: flex;
@@ -25,35 +25,35 @@
     color: white;
 }
 
-.top-pursuits .top h2 {
+.top_pursuits .top h2 {
     width: 50%;
 }
 
-.top-pursuits .top .bounty {
+.top_pursuits .top .bounty {
     display: flex;
     justify-content: end;
 }
 
-.top-pursuits .top .top-text,
-.top-pursuits .top .top-text-hidden,
-.top-pursuits .top .top-text-white {
+.top_pursuits .top .top_text,
+.top_pursuits .top .top_text_hidden,
+.top_pursuits .top .top_text_white {
     padding: 0rem 0rem;
     font-size: var(--fs2);
 }
 
-.top-pursuits .top .top-text-white {
+.top_pursuits .top .top_text-white {
     color: white;
 }
 
-.top-pursuits .top .top-text {
+.top_pursuits .top .top_text {
     animation: textLoadIn 200ms linear none;
 }
 
-.top-pursuits .top .top-text-hidden {
+.top_pursuits .top .top_text_hidden {
     opacity: 0;
 }
 
-.top-pursuits .pursuit-data {
+.top_pursuits .pursuit_data {
     height: 60vh;
     
     display: flex;
@@ -62,18 +62,18 @@
     
 }
 
-.top-pursuits .data {
+.top_pursuits .data {
     display: grid;
     grid-template-columns: 0.1fr 1fr;
 
     padding: 0.5rem 0rem;
 }
 
-.top-pursuits .stat{
+.top_pursuits .stat{
     display: flex;
     flex-wrap: wrap;
 }
 
-.top-pursuits .stat h2{
+.top_pursuits .stat h2{
     width: 50%;
 }

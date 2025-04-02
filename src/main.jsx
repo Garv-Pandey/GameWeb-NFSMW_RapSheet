@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './css/index.css'
+import './index.css'
 import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom'
 import { MainMenu } from './pages/MainMenu.jsx'
 import { Summary } from './pages/Summary.jsx'

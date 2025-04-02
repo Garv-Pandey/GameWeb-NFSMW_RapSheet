@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Header } from "../components/Header"
 import { DottedLine } from "../components/DottedLine"
 import { Footer } from "../components/Footer"
-import "../css/VehicleDatabase.css"
+import styles from "./VehicleDatabase.module.css"
 
 export function VehicleDatabase() {
     const buttonData = [
         { symbol: "Esc", text: "Back" }
     ]
+    const scrollableDataRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -61,9 +63,8 @@ export function VehicleDatabase() {
             }, (index + 1) * 100);
         })
 
-        setTimeout(() => {
-            const scrollableData = document.querySelector('.scrollable-data')
-            scrollableData.classList.add('visible')
+        const timer = setTimeout(() => {
+            setIsVisible(true);
         }, 800);
 
 
@@ -74,22 +75,22 @@ export function VehicleDatabase() {
 
     const topTextAnimeClassSetter = (index, text, topTextVisible) => {
         if (topTextVisible.includes(text) && [0, 1].includes(index)) {
-            return "top-text-white"
+            return styles.top_text_white
         }
 
         if (topTextVisible.includes(text)) {
-            return "top-text"
+            return styles.top_text
         }
 
-        return "top-text-hidden"
+        return styles.top_text_hidden
     }
 
     return (
 
-        <div className="vehicleData">
+        <div className={styles.vehicleData}>
             <Header title="Vehicle Database" />
 
-            <ul className="top">
+            <ul className={styles.top}>
                 {topText.map((text, index) => (
                     <li key={index} className={topTextAnimeClassSetter(index, text, topTextVisible)}><h2>{text}</h2></li>
                 ))}
@@ -97,16 +98,17 @@ export function VehicleDatabase() {
 
             <DottedLine />
 
-            <ul className="scrollable-data">
+            <ul ref={scrollableDataRef}
+            className={`${styles.scrollable_data} ${isVisible ? styles.scrollable_data_visible : ''}`}>
                 {vehicleData.map((vehicle, index) =>
-                    <li key={index} className="vehicle-info">
-                        <h2 className="heading">{vehicle.name}</h2>
-                        <h2 className="heading">{vehicle.status}</h2>
-                        <h2 className="info">Bounty: {vehicle.bounty}</h2>
-                        <h2 className="info">Times Evaded: {vehicle.timesEvaded}</h2>
-                        <h2 className="info">Fines Due: {vehicle.finesDue}</h2>
-                        <h2 className="info">Times Busted: {vehicle.timesBusted}</h2>
-                        <h2 className="info">Unserved Infractions: {vehicle.unservedInfractions}</h2>
+                    <li key={index} className={styles.vehicle_info}>
+                        <h2 className={styles.heading}>{vehicle.name}</h2>
+                        <h2 className={styles.heading}>{vehicle.status}</h2>
+                        <h2 className={styles.info}>Bounty: {vehicle.bounty}</h2>
+                        <h2 className={styles.info}>Times Evaded: {vehicle.timesEvaded}</h2>
+                        <h2 className={styles.info}>Fines Due: {vehicle.finesDue}</h2>
+                        <h2 className={styles.info}>Times Busted: {vehicle.timesBusted}</h2>
+                        <h2 className={styles.info}>Unserved Infractions: {vehicle.unservedInfractions}</h2>
                     </li>
                 )}
 

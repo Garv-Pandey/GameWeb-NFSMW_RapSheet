@@ -23,30 +23,30 @@
     align-items: stretch;
 }
 
-.top .top-text,
-.top .top-text-hidden,
-.top .top-text-white {
+.top .top_text,
+.top .top_text_hidden,
+.top .top_text_white {
     padding: 0rem 0rem;
     font-size: var(--fs2);
 }
 
-.top .top-text-white {
+.top .top_text_white {
     color: white;
 }
 
-.top .top-text {
+.top .top_text {
     animation: textLoadIn 200ms linear none;
 }
 
-.top .top-text-hidden {
+.top .top_text_hidden {
     opacity: 0;
 }
 
-.dotted-line {
+.dotted_line {
     animation-delay: 700ms;
 }
 
-.scrollable-data {
+.scrollable_data {
     height: 45vh;
     padding: 0.5rem 0rem 0.5rem 0rem;
 
@@ -62,11 +62,11 @@
     transition: opacity 200ms linear;
 }
 
-.scrollable-data.visible{
+.scrollable_data_visible{
     opacity: 1;
 }
 
-.vehicle-info {
+.vehicle_info {
     padding: 0rem 0rem 2rem 0rem;
 
     display: flex;
@@ -80,7 +80,7 @@
     }
 }
 
-.vehicle-info .heading {
+.vehicle_info .heading {
     width: 100%;
 
     padding: 0.25rem 0rem 0.25rem 1rem;
@@ -95,7 +95,7 @@
     }
 }
 
-.vehicle-info .info {
+.vehicle_info .info {
     width: 100%;
     padding: 0rem 0rem 0rem 1rem;
 

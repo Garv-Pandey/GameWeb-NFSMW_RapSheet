@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { Header } from "../components/Header"
 import { DottedLine } from "../components/DottedLine"
 import { Footer } from "../components/Footer"
-import "../css/CostToState.css"
+import styles from "./CostToState.module.css"
 
 export function CostToState() {
     const buttonData = [
@@ -24,18 +24,18 @@ export function CostToState() {
     ];
 
     return (
-        <div className="cost-to-state">
+        <div className={styles.cost_to_state}>
 
             <Header title={"Cost To State"} />
 
-            <div className="top">
+            <div className={styles.top}>
                 <h2>Name: gabbu</h2>
-                <h2 className="bounty">Bounty: 6,580,800</h2>
+                <h2 className={styles.bounty}>Bounty: 6,580,800</h2>
             </div>
 
             <DottedLine />
 
-            <div className="cost-data">
+            <div className={styles.cost_data}>
                 <table>
                     <thead>
                         <tr>
@@ -46,7 +46,7 @@ export function CostToState() {
                     </thead>
                     <tbody>
                         {costData.map((item, index) => (
-                            <tr key={index} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>
+                            <tr key={index} className={index % 2 === 0 ? styles.even_row : styles.odd_row}>
                                 <td><h2>{item.qty}</h2></td>
                                 <td align="center"><h2>{item.category}</h2></td>
                                 <td align="center"><h2>{item.cost}</h2></td>
@@ -58,7 +58,7 @@ export function CostToState() {
 
             <DottedLine />
 
-            <h2 className="total-cost">cost To State: 1,486,450</h2>
+            <h2 className={styles.total_cost}>cost To State: 1,486,450</h2>
 
             {window.innerWidth > 1000 && <><DottedLine /> <Footer buttons={buttonData} /></>}
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { Header } from "../components/Header"
 import { DottedLine } from "../components/DottedLine"
 import { Footer } from "../components/Footer"
-import "../css/Infractions.css"
+import styles from "./Infractions.module.css"
 
 export function Infractions() {
     const buttonData = [
@@ -42,12 +42,6 @@ export function Infractions() {
             }, (index + 1) * 100);
         })
 
-        // setTimeout(() => {
-        //     const scrollableData = document.querySelector('.scrollable-data')
-        //     scrollableData.classList.add('visible')
-        // }, 800);
-
-
         // Cleanup listener on unmount
         return () => window.removeEventListener("resize", handleResize)
     }, []);
@@ -55,22 +49,22 @@ export function Infractions() {
 
     const topTextAnimeClassSetter = (index, text, topTextVisible) => {
         if (topTextVisible.includes(text) && [0, 1].includes(index)) {
-            return "top-text-white"
+            return styles.top_text_white
         }
 
         if (topTextVisible.includes(text)) {
-            return "top-text"
+            return styles.top_text
         }
 
-        return "top-text-hidden"
+        return styles.top_text_hidden
     }
 
     return (
-        <div className="infractions">
+        <div className={styles.infractions}>
 
             <Header title={"Infractions"} />
 
-            <ul className="top">
+            <ul className={styles.top}>
                 {topText.map((text, index) => (
                     <li className={topTextAnimeClassSetter(index, text, topTextVisible)}><h2>{text}</h2></li>
                 ))}
@@ -78,7 +72,7 @@ export function Infractions() {
 
             <DottedLine />
 
-            <div className="infractions-data">
+            <div className={styles.infractions_data}>
                 <table>
                     <thead>
                         <tr>
@@ -89,7 +83,7 @@ export function Infractions() {
                     </thead>
                     <tbody>
                         {infractionData.map((item, index) => (
-                            <tr key={index} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>
+                            <tr key={index} className={index % 2 === 0 ? styles.even_row : styles.odd_row}>
                                 <td><h2>{item.infraction}</h2></td>
                                 <td align="center"><h2>{item.unserved}</h2></td>
                                 <td align="center"><h2>{item.total}</h2></td>

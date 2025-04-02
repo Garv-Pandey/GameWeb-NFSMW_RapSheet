@@ -3,7 +3,7 @@ import { Footer } from "../components/Footer"
 import { Header } from "../components/Header"
 import { DottedLine } from "../components/DottedLine"
 import { Link } from "react-router-dom"
-import '../css/MainMenu.css'
+import styles from './Rankings.module.css'
 
 export function Rankings() {
     const buttonData = [
@@ -26,20 +26,20 @@ export function Rankings() {
 
     return (
 
-        <div className="Rankings">
+        <div className={styles.rankings}>
             <Header title={"Rankings"} />
 
-            <div className="top">
+            <div className={styles.top}>
                 <h2>Name: gabbu</h2>
-                <h2 className="bounty">Bounty: 6,580,800</h2>
+                <h2 className={styles.bounty}>Bounty: 6,580,800</h2>
             </div>
  
             <DottedLine />
             <h2>Select A Category For More Detail</h2>
 
-            <ol className="rankings-data">
+            <ol className={styles.rankings_data}>
                 {pursuitStatsData.map((data, index) => (
-                    <li key={index} className="data">
+                    <li key={index} className={styles.data}>
                         <h2>{data.label}</h2>
                         <h2>{data.value}</h2>
                         

@@ -3,7 +3,7 @@ import { Footer } from "../components/Footer"
 import { Header } from "../components/Header"
 import { DottedLine } from "../components/DottedLine"
 import { Link } from "react-router-dom"
-import '../css/MainMenu.css'
+import styles from './MainMenu.module.css'
 
 export function MainMenu() {
   const buttonData = [
@@ -21,7 +21,7 @@ export function MainMenu() {
     "Busted: 0"]
   const [visibleStats, setVisibleStats] = useState([]);
 
-  const [headingClass, setHeadingClass] = useState("heading-hidden")
+  const [headingClass, setHeadingClass] = useState(styles.heading_hidden)
 
   const pages = [{ link: "/summary", text: "Summary" },
   { link: "/vehicle-database", text: "Vehicle Database" },
@@ -52,7 +52,7 @@ export function MainMenu() {
 
     // menu heading
     setTimeout(() => {
-      setHeadingClass("heading")
+      setHeadingClass(styles.heading)
     }, time_elapsed + animationInterval.current);
     time_elapsed += animationInterval.current
 
@@ -70,32 +70,32 @@ export function MainMenu() {
 
   const statsTextAnimeClassSetter = (index, text, visibleStats) => {
     if (visibleStats.includes(text) && [0, 1].includes(index)) {
-      return "stats-text-white"
+      return styles.stats_text_white
     }
 
     if (visibleStats.includes(text)) {
-      return "stats-text"
+      return styles.stats_text
     }
 
-    return "stats-text-hidden"
+    return styles.stats_text_hidden
   }
 
 
 
   const pageAnimeClassSetter = (index, page, visiblePagesLink) => {
     if (visiblePagesLink.includes(page.link)) {
-      return "page"
+      return styles.page
     }
 
-    return "page-hidden"
+    return styles.page_hidden
   }
 
 
   return (
-    <div className="sheet">
+    <div className={styles.sheet}>
       <Header title={"Rap Sheet"} />
 
-      <ul className="stats">
+      <ul className={styles.stats_banner}>
         {stats_text.map((text, index) => (
           <li key={index} className={statsTextAnimeClassSetter(index, text, visibleStats)}>
             <h2>{text}</h2>
@@ -104,14 +104,14 @@ export function MainMenu() {
       </ul>
 
 
-      <DottedLine className="top-line" />
+      <DottedLine className={styles.top_line} />
 
-      <div className="main-menu">
+      <div className={styles.main_menu}>
         <h2 className={headingClass}>Main Menu:</h2>
 
-        <ul className="scrollable-menu">
+        <ul className={styles.scrollable_menu}>
           {pages.map((page, index) => (
-            <Link key={index} to={page.link} className="link">
+            <Link key={index} to={page.link} className={styles.link}>
               <h2 className={pageAnimeClassSetter(index, page, visiblePagesLink)}>{page.text}</h2>
             </Link>
           ))}

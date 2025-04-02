@@ -23,26 +23,26 @@
     align-items: stretch;
 }
 
-.infractions .top .top-text,
-.infractions .top .top-text-hidden,
-.infractions .top .top-text-white {
+.infractions .top .top_text,
+.infractions .top .top_text_hidden,
+.infractions .top .top_text_white {
     padding: 0rem 0rem;
     font-size: var(--fs2);
 }
 
-.infractions .top .top-text-white {
+.infractions .top .top_text_white {
     color: white;
 }
 
-.infractions .top .top-text {
+.infractions .top .top_text {
     animation: textLoadIn 200ms linear none;
 }
 
-.infractions .top .top-text-hidden {
+.infractions .top .top_text_hidden {
     opacity: 0;
 }
 
-.infractions .infractions-data {
+.infractions .infractions_data {
     height: 40vh;
     padding: 0.5rem 0rem;
 
@@ -76,6 +76,6 @@
 }
 
 
-.infractions .odd-row{
+.infractions .odd_row{
     background-color: var(--green3);
 }

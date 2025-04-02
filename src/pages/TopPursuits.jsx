@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { Header } from "../components/Header"
 import { DottedLine } from "../components/DottedLine"
 import { Footer } from "../components/Footer"
-import "../css/TopPursuits.css"
+import styles from "./TopPursuits.module.css"
 
 export function TopPursuits() {
     const buttonData = [
@@ -49,21 +49,21 @@ export function TopPursuits() {
     ];
 
     return (
-        <div className="top-pursuits">
+        <div className={styles.top_pursuits}>
             <Header title={"Cost To State"} />
 
-            <div className="top">
+            <div className={styles.top}>
                 <h2>Name: gabbu</h2>
-                <h2 className="bounty">Bounty: 6,580,800</h2>
+                <h2 className={styles.bounty}>Bounty: 6,580,800</h2>
             </div>
 
             <DottedLine />
 
-            <ol className="pursuit-data">
+            <ol className={styles.pursuit_data}>
                 {topPursuitsData.map((data, index) => (
-                    <li key={index} className="data">
-                        <h2 className="rank">{data.rank}</h2>
-                        <div className="stat">
+                    <li key={index} className={styles.data}>
+                        <h2 className={styles.rank}>{data.rank}</h2>
+                        <div className={styles.stat}>
                             <h2 style={{ color: "white" }}>Car Used: {data.carUsed}</h2>
                             <h2>ID: {data.id}</h2>
                             <h2>Bounty: {data.bounty}</h2>

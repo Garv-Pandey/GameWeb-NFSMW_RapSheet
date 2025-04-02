@@ -11,7 +11,7 @@
     font-size: var(--fs2);
 }
 
-.footer .button-panel {
+.footer .button_panel {
     width: 59%;
 
     font-size: var(--fs3);
@@ -25,7 +25,7 @@
     animation: fadeIn 0.5s linear;
 }
 
-.footer .banner-panel {
+.footer .banner_panel {
     width: 40%;
 
     display: flex;
@@ -39,7 +39,7 @@
     animation-iteration-count: infinite;
 }
 
-.footer .banner-panel .footer-banner{
+.footer .banner_panel .footer_banner{
     /* flex: 1;   */
     /* Allow it to take remaining space */
     
