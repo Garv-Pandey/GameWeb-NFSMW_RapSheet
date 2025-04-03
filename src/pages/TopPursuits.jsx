@@ -3,6 +3,7 @@ import { Header } from "../components/Header"
 import { DottedLine } from "../components/DottedLine"
 import { Footer } from "../components/Footer"
 import styles from "./TopPursuits.module.css"
+import { Link } from "react-router-dom"
 
 export function TopPursuits() {
     const buttonData = [
@@ -50,7 +51,7 @@ export function TopPursuits() {
 
     return (
         <div className={styles.top_pursuits}>
-            <Header title={"Cost To State"} />
+            <Header title={"Top 5 Pursuits"} />
 
             <div className={styles.top}>
                 <h2>Name: gabbu</h2>
@@ -61,6 +62,8 @@ export function TopPursuits() {
 
             <ol className={styles.pursuit_data}>
                 {topPursuitsData.map((data, index) => (
+                    <Link key={index} to={`/top-pursuits/${data.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
+
                     <li key={index} className={styles.data}>
                         <h2 className={styles.rank}>{data.rank}</h2>
                         <div className={styles.stat}>
@@ -70,6 +73,8 @@ export function TopPursuits() {
                             <h2>Length{data.length}</h2>
                         </div>
                     </li>
+
+                    </ Link>
 
                 ))}
 

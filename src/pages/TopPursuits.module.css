@@ -55,11 +55,11 @@
 
 .top_pursuits .pursuit_data {
     height: 60vh;
-    
+
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    
+
 }
 
 .top_pursuits .data {
@@ -69,11 +69,27 @@
     padding: 0.5rem 0rem;
 }
 
-.top_pursuits .stat{
+.top_pursuits .data:hover {
+    animation: pageHover 2s infinite step-start;
+}
+
+.top_pursuits .stat {
     display: flex;
     flex-wrap: wrap;
 }
 
-.top_pursuits .stat h2{
-    width: 50%;
+.top_pursuits .stat h2 {
+    min-width: 50%;
+}
+
+@keyframes pageHover {
+
+    0%,
+    100% {
+        background-color: var(--green3);
+    }
+
+    50% {
+        background-color: var(--green2);
+    }
 }

@@ -9,6 +9,7 @@ import { Infractions } from './pages/Infractions.jsx'
 import { CostToState } from './pages/CostToState.jsx'
 import { TopPursuits } from './pages/TopPursuits.jsx'
 import { Rankings } from './pages/Rankings.jsx'
+import { PursuitDetails } from './pages/Pursuit Details/PursuitDetails.jsx'
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   { path: "/top-pursuits", element: <TopPursuits /> },
   { path: "/rankings", element: <Rankings /> },
 
+  {path: "/top-pursuits/:id", element: <PursuitDetails />}
 ])
 
 createRoot(document.getElementById('root')).render(
