@@ -1,5 +1,18 @@
+h1 {
+    font-size: var(--fs1);
+}
+
+h2 {
+    font-size: var(--fs2);
+}
+
+h3 {
+    font-size: var(--fs3);
+}
+
+
 .footer {
-    min-height: 10vh;
+    height: 8vh;
     padding: 0.25rem 0rem 0rem 0rem;
 
     display: flex;
@@ -29,7 +42,6 @@
     width: 40%;
 
     display: flex;
-    /* flex-flow: row-reverse; */
     justify-content: flex-end;
 
 
@@ -39,10 +51,7 @@
     animation-iteration-count: infinite;
 }
 
-.footer .banner_panel .footer_banner{
-    /* flex: 1;   */
-    /* Allow it to take remaining space */
-    
+.footer .banner_panel .footer_banner {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -51,34 +60,31 @@
 @keyframes slideUp {
     0% {
         transform: translateY(100%);
-        /* Start below */
         opacity: 0;
     }
 
     10% {
         transform: translateY(0%);
-        /* Move to normal position */
         opacity: 1;
     }
 
     90% {
         transform: translateY(0%);
-        /* Stay in normal position */
         opacity: 1;
     }
 
     100% {
         transform: translateY(-100%);
-        /* Exit from top */
         opacity: 0;
     }
 }
 
 @keyframes fadeIn {
-    0%{
+    0% {
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }

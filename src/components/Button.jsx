@@ -9,11 +9,11 @@ export function Button({ symbol, text }) {
     return (
         <button type={styles.button} onClick={handleClick} className={styles.button}>
             <div className={styles.symbol}>
-                <h2>{symbol}</h2>
+                <h3>{symbol}</h3>
             </div>
 
             <div className={styles.text}>
-                <h2>{text}</h2>
+                <h3>{text}</h3>
             </div>
 
         </button>

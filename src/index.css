@@ -9,12 +9,22 @@
     --green2: #324615;
     --green3: #27310d;
 
-    /* for size greater than 640x480 px */
-    --fs1: 1rem;
-    --fs2: 0.9rem;
-    --fs3: 0.8rem;
+    --fs1: 2rem;
+    --fs2: 1.5rem;
+    --fs3: 1.3rem;
 }
 
+h1 {
+    font-size: var(--fs1);
+}
+
+h2 {
+    font-size: var(--fs2);
+}
+
+h3 {
+    font-size: var(--fs3);
+}
 
 html,
 body {
@@ -29,11 +39,10 @@ body {
     color: var(--green1);
     font-family: "Orbitron", sans-serif;
     font-weight: 900;
-    text-transform: uppercase;
     letter-spacing: 3px;
-    line-height: 2.5rem;
+    /* line-height: 2.5rem; */
 
-    @media (width>1000px) {
+    @media (width > 62.5rem) {
         justify-content: center;
     }
 
@@ -44,7 +53,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--green2);
+    background-color: var(--green3);
     /* border:3px black solid; */
     border-left: 6px black solid;
     border-right: 6px black solid;

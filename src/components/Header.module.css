@@ -1,16 +1,22 @@
+h1 {
+    font-size: var(--fs1);
+}
+
+h2 {
+    font-size: var(--fs2);
+}
+
+h3 {
+    font-size: var(--fs3);
+}
+
 .header{
-    /* min-height: 50px; */
-    /* min-height: 30%; */
-    min-height: 10vh;
-    padding: 0rem 0rem 0rem 1rem;
+    min-height: 8vh;
+    padding: 0rem 0rem 0rem 1.5rem;
 
     display: flex;
     align-items: center;
-
-    font-size: var(--fs1);
     color: black;
-    background-color: var(--green1); /* Neon Green */;
-    
-    
-    -webkit-text-stroke: 1px black;
+    background-color: var(--green1);
+    -webkit-text-stroke: 0.05rem black;
 }
