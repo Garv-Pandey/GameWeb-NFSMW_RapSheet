@@ -1,0 +1,80 @@
+.rankings {
+    height: 90vh;
+    width: calc(100vw - 24px);
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+
+    @media (width >=1000px) {
+        width: 70vw;
+    }
+}
+
+.top {
+    display: flex;
+}
+
+.top h2 {
+    width: 50%;
+}
+
+.rankings_scrollable {
+    @media (width > 1000px) {
+        overflow-y: auto;
+    }
+}
+
+.rankings_data {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.data {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    /* Adjust padding as needed */
+    border-bottom: 1px solid #ccc;
+    /* Optional: add a separator line */
+
+}
+
+.data:hover {
+    color: white;
+    animation: pageHover 2s infinite step-start;
+    cursor: pointer;
+}
+
+.category {
+    width: 80%;
+    /* flex: 1; */
+    font-weight: bold;
+    /* Add any specific styling for labels */
+}
+
+.category::before {
+    content: "> ";
+}
+
+.value {
+    flex: 1;
+    text-align: right;
+    color: white;
+}
+
+@keyframes pageHover {
+
+    0%,
+    100% {
+        background-color: var(--green3);
+    }
+
+    50% {
+        background-color: var(--green2);
+    }
+}

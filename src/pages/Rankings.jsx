@@ -11,7 +11,7 @@ export function Rankings() {
         { symbol: "Esc", text: "Back" }
     ]
 
-    const pursuitStatsData = [
+    const rankingCategories = [
         { label: "PURSUIT LENGTH", value: 7 },
         { label: "TOTAL POLICE VEHICLES INVOLVED", value: 5 },
         { label: "POLICE VEHICLES DAMAGED", value: 6 },
@@ -31,23 +31,30 @@ export function Rankings() {
 
             <div className={styles.top}>
                 <h2>Name: gabbu</h2>
-                <h2 className={styles.bounty}>Bounty: 6,580,800</h2>
+                <h2>Single Pursuit</h2>
             </div>
- 
+
             <DottedLine />
-            <h2>Select A Category For More Detail</h2>
+            <h2>Select A Category For More Detail:</h2>
 
-            <ol className={styles.rankings_data}>
-                {pursuitStatsData.map((data, index) => (
-                    <li key={index} className={styles.data}>
-                        <h2>{data.label}</h2>
-                        <h2>{data.value}</h2>
-                        
-                    </li>
+            <div className={styles.rankings_scrollable}>
 
-                ))}
+                <ol className={styles.rankings_data}>
 
-            </ol>
+                    {rankingCategories.map((data, index) => (
+                        <Link key={index} to={`/rankings/${data.label}`} style={{textDecoration: 'none', color: 'inherit'}}>
+
+                            <li key={index} className={styles.data}>
+                                <h2 className={styles.category}>{data.label}</h2>
+                                <h2 className={styles.value}>{data.value}</h2>
+
+                            </li>
+
+                        </Link>
+                    ))}
+
+                </ol>
+            </div>
             {window.innerWidth > 1000 && <><DottedLine /> <Footer buttons={buttonData} /></>}
         </div>
     )

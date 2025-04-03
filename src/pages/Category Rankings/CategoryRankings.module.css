@@ -1,0 +1,49 @@
+.rankings {
+    width: calc(100vw - 24px);
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    
+    @media (width >=1000px) {
+        width: 70vw;
+        min-height: 90vh;
+    }
+}
+
+.rankings_table {
+    width: 100%;
+    /* min-height: 70vh; */
+    /* Adjust as needed */
+    border-collapse: collapse;
+    /* Optional: remove spacing between cells */
+
+    @media (width >=1000px) {
+        overflow-y: auto;
+    }
+}
+
+.rankings_table th,
+.rankings_table td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    /* Darker border */
+}
+
+.rankings_table th {
+    font-weight: bold;
+}
+
+.gabbu_row {
+    background-color: inherit;
+}
+
+.gabbu_row td:first-child::before {
+    content: '>';
+    /* Add the ">" before the rank for "gabbu" */
+    margin-right: 5px;
+}
