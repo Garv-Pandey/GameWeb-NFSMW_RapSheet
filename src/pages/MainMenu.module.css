@@ -48,7 +48,6 @@ h3 {
 
     @media (width>=62.5rem) and (height>=37.5rem) {
         height: 40vh;
-        /* overflow-y: auto; */
     }
 
     background: repeating-linear-gradient(-45deg,
@@ -155,11 +154,6 @@ a:hover .page::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23a4e043'/%3E%3Ccircle cx='20' cy='20' r='12' fill='black'/%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;
-}
-
-
-.dotted_line {
-    animation-delay: 800ms;
 }
 
 @keyframes moveStripes {

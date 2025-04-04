@@ -11,11 +11,6 @@ export function MainMenu() {
     { symbol: "↵", text: "Accept" },
   ]
 
-  const [windowDimensions, setWindowDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
   const stats_text = ["Name: gabbu",
     "Bounty: 403,300",
     "Cost To State: 399,750",
@@ -40,16 +35,6 @@ export function MainMenu() {
   const animationInterval = useRef(100) //time in ms
 
   useEffect(() => {
-    // window resize
-    const handleResize = () => {
-      setWindowDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-    window.addEventListener('resize', handleResize);
-
-    // animating
     let time_elapsed = 0 //ms
 
     // stats_text
@@ -71,11 +56,9 @@ export function MainMenu() {
     pages.forEach((page, index) => {
       setTimeout(() => {
         setVisiblePagesLink((prev) => [...prev, page.link]);
-      }, time_elapsed + (index + 1) * animationInterval.current); // time_elapsed + (index + 1) * animationInterval.current Each item appears 500ms after the previous one
+      }, time_elapsed + (index + 1) * animationInterval.current);
     });
 
-    // Cleanup listener on unmount
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
 
@@ -93,7 +76,7 @@ export function MainMenu() {
 
 
 
-  const pageAnimeStyleSetter = (index, page, visiblePagesLink) => {
+  const pageStyleSetter = (index, page, visiblePagesLink) => {
     if (visiblePagesLink.includes(page.link)) {
       return `${styles.page} ${styles.visible}`
     }
@@ -116,7 +99,7 @@ export function MainMenu() {
       </ul>
 
 
-      <DottedLine />
+      <DottedLine delay={800} />
 
       <div className={styles.main_menu}>
         <h2 className={headingClass}>Main Menu:</h2>
@@ -125,7 +108,7 @@ export function MainMenu() {
           <ul >
             {pages.map((page, index) => (
               <Link key={index} to={page.link} >
-                <h2 className={pageAnimeStyleSetter(index, page, visiblePagesLink)}>{page.text}</h2>
+                <h2 className={pageStyleSetter(index, page, visiblePagesLink)}>{page.text}</h2>
               </Link>
             ))}
           </ul>
@@ -133,9 +116,8 @@ export function MainMenu() {
 
       </div>
 
-      {/* {windowDimensions.height / 16 > 37.5 && windowDimensions.width / 16 > 62.5 && <><DottedLine /> <Footer buttons={buttonData} /></>} */}
-
-      <DottedLine />
+      <DottedLine delay={800} />
+      
       <Footer buttons={buttonData} />
     </ div>
   )
