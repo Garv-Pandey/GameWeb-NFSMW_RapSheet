@@ -28,6 +28,10 @@ export function Infractions() {
         { infraction: "DAMAGE TO PROPERTY", unserved: 0, total: 18 },
         { infraction: "RESISTING ARREST", unserved: 1, total: 24 },
         { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
+        { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
+        { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
+        { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
+        { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
     ];
 
     useEffect(() => {
@@ -49,14 +53,14 @@ export function Infractions() {
 
     const topTextAnimeClassSetter = (index, text, topTextVisible) => {
         if (topTextVisible.includes(text) && [0, 1].includes(index)) {
-            return styles.top_text_white
+            return `${styles.top_text} ${styles.white} ${styles.visible}`
         }
 
         if (topTextVisible.includes(text)) {
-            return styles.top_text
+            return `${styles.top_text} ${styles.visible}`
         }
 
-        return styles.top_text_hidden
+        return styles.top_text
     }
 
     return (
@@ -66,17 +70,17 @@ export function Infractions() {
 
             <ul className={styles.top}>
                 {topText.map((text, index) => (
-                    <li className={topTextAnimeClassSetter(index, text, topTextVisible)}><h2>{text}</h2></li>
+                    <li key={index} className={topTextAnimeClassSetter(index, text, topTextVisible)}><h2>{text}</h2></li>
                 ))}
             </ul>
 
             <DottedLine />
 
-            <div className={styles.infractions_data}>
-                <table>
+            <div className={styles.infractions_scrollable}>
+                <table className={styles.infractions_table}>
                     <thead>
                         <tr>
-                            <th></th> {/* Empty header for spacing */}
+                            <th></th>
                             <th><h2>UNSERVED</h2></th>
                             <th><h2>TOTAL</h2></th>
                         </tr>
@@ -94,7 +98,10 @@ export function Infractions() {
             </div>
 
 
-            {window.innerWidth > 1000 && <><DottedLine /> <Footer buttons={buttonData} /></>}
+
+            <DottedLine /> 
+            
+            <Footer buttons={buttonData} />
         </div>
     )
 }

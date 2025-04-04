@@ -1,6 +1,17 @@
+h1 {
+    font-size: var(--fs1);
+}
+
+h2 {
+    font-size: var(--fs2);
+}
+
+h3 {
+    font-size: var(--fs3);
+}
+
 .infractions {
     width: calc(100vw - 24px);
-    min-height: 90vh;
     max-width: 1200px;
     margin: 0 auto;
 
@@ -9,73 +20,90 @@
     flex-wrap: nowrap;
     align-items: stretch;
 
-    @media (width >=1000px) {
+    overflow-y: hidden;
+
+    text-transform: uppercase;
+
+    @media (width >=62.5rem) {
         width: 70vw;
+    }
+
+    @media (width>=62.5rem) and (height>=37.5rem) {
+        height: 95vh;
+        overflow-y: hidden;
     }
 }
 
-.infractions .top {
-    padding: 0.5rem 0rem 0.5rem 1rem;
+.top {
+    padding: 0.25rem 0rem 0.25rem 0rem;
 
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    align-items: stretch;
 }
 
-.infractions .top .top_text,
-.infractions .top .top_text_hidden,
-.infractions .top .top_text_white {
-    padding: 0rem 0rem;
-    font-size: var(--fs2);
-}
-
-.infractions .top .top_text_white {
-    color: white;
-}
-
-.infractions .top .top_text {
-    animation: textLoadIn 200ms linear none;
-}
-
-.infractions .top .top_text_hidden {
+.top_text {
+    padding: 0.25rem 0rem 0.25rem 1.5rem;
     opacity: 0;
 }
 
-.infractions .infractions_data {
-    height: 40vh;
-    padding: 0.5rem 0rem;
-
-    overflow: auto;
-
-    font-size: var(--fs2);
+.top_text.visible {
+    animation: textLoadIn 200ms linear;
+    opacity: 1;
 }
 
-.infractions table{
-    width: 100%;
+.top_text.white.visible {
+    color: white;
 }
 
-.infractions th{
+.infractions_scrollable {
+    width: calc(100vw - 24px);
+    overflow-x: auto;
+    @media (width>=62.5rem) and (height>=37.5rem) {
+        width: 100%;
+        height: 85vh;
+        overflow-y: auto;
+    }
+}
+
+.infractions_table {
     width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    width: 100%;
+    
+    
     background-color: var(--green3);
     text-align: left;
+
 }
 
-.infractions th:nth-child(1){
+th:nth-child(1) {
+    min-width: 15ch;
     padding: 0rem 0rem 0rem 1rem;
     width: 60%;
 }
-.infractions td:nth-child(1){
+
+td:nth-child(1) {
     padding: 0rem 0rem 0rem 1rem;
     width: 60%;
 }
-.infractions th:nth-child(2),
-.infractions th:nth-child(3) {
+
+th:nth-child(2),
+th:nth-child(3) {
     width: 20%;
     text-align: center;
 }
 
+tr{
+    height: 2.5rem;
+}
 
-.infractions .odd_row{
+tr:nth-child(even){
     background-color: var(--green3);
 }
+/* .odd_row {
+    background-color: var(--green3);
+} */
