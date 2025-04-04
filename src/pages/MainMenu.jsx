@@ -11,7 +11,10 @@ export function MainMenu() {
     { symbol: "↵", text: "Accept" },
   ]
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   const stats_text = ["Name: gabbu",
     "Bounty: 403,300",
@@ -21,22 +24,30 @@ export function MainMenu() {
     "Busted: 0"]
   const [visibleStats, setVisibleStats] = useState([]);
 
-  const [headingClass, setHeadingClass] = useState(styles.heading_hidden)
+  const [headingClass, setHeadingClass] = useState(styles.menu_heading)
 
   const pages = [{ link: "/summary", text: "Summary" },
   { link: "/vehicle-database", text: "Vehicle Database" },
   { link: "/infractions", text: "Infractions" },
   { link: "/cost-to-state", text: "Cost To State" },
   { link: "/top-pursuits", text: "Top 5 Pursuits" },
-  { link: "/rankings", text: "Rankings" }]
+  { link: "/rankings", text: "Rankings" },
+  { link: "/rankings", text: "Rankings" },
+  { link: "/rankings", text: "Rankings" },
+  ]
   const [visiblePagesLink, setVisiblePagesLink] = useState([]);
 
   const animationInterval = useRef(100) //time in ms
 
   useEffect(() => {
     // window resize
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
+    const handleResize = () => {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    window.addEventListener('resize', handleResize);
 
     // animating
     let time_elapsed = 0 //ms
@@ -47,12 +58,12 @@ export function MainMenu() {
         setVisibleStats((prev) => [...prev, item]);
       }, (index + 1) * animationInterval.current); // Each item appears 500ms after the previous one
     });
-    time_elapsed = stats_text.length * animationInterval.current 
+    time_elapsed = stats_text.length * animationInterval.current
     time_elapsed += 500 //dotted line animation
 
     // menu heading
     setTimeout(() => {
-      setHeadingClass(styles.heading)
+      setHeadingClass(`${styles.menu_heading} ${styles.visible}`)
     }, time_elapsed + animationInterval.current);
     time_elapsed += animationInterval.current
 
@@ -68,26 +79,26 @@ export function MainMenu() {
   }, []);
 
 
-  const statsTextAnimeClassSetter = (index, text, visibleStats) => {
+  const statsTextStyleSetter = (index, text, visibleStats) => {
     if (visibleStats.includes(text) && [0, 1].includes(index)) {
-      return styles.stats_text_white
+      return `${styles.stats_text} ${styles.white} ${styles.visible}`
     }
 
     if (visibleStats.includes(text)) {
-      return styles.stats_text
+      return `${styles.stats_text} ${styles.visible}`
     }
 
-    return styles.stats_text_hidden
+    return styles.stats_text
   }
 
 
 
-  const pageAnimeClassSetter = (index, page, visiblePagesLink) => {
+  const pageAnimeStyleSetter = (index, page, visiblePagesLink) => {
     if (visiblePagesLink.includes(page.link)) {
-      return styles.page
+      return `${styles.page} ${styles.visible}`
     }
 
-    return styles.page_hidden
+    return styles.page
   }
 
 
@@ -95,35 +106,37 @@ export function MainMenu() {
     <div className={styles.sheet}>
       <Header title={"Rap Sheet"} />
 
-      <ul className={styles.stats_banner}>
+
+      <ul className={styles.stats}>
         {stats_text.map((text, index) => (
-          <li key={index} className={statsTextAnimeClassSetter(index, text, visibleStats)}>
+          <li key={index} className={statsTextStyleSetter(index, text, visibleStats)}>
             <h2>{text}</h2>
           </li>
         ))}
       </ul>
 
 
-      <DottedLine className={styles.top_line} />
+      <DottedLine />
 
       <div className={styles.main_menu}>
         <h2 className={headingClass}>Main Menu:</h2>
+        <div className={styles.scrollable_menu}>
 
-        <ul className={styles.scrollable_menu}>
-          {pages.map((page, index) => (
-            <Link key={index} to={page.link} className={styles.link}>
-              <h2 className={pageAnimeClassSetter(index, page, visiblePagesLink)}>{page.text}</h2>
-            </Link>
-          ))}
-        </ul>
+          <ul >
+            {pages.map((page, index) => (
+              <Link key={index} to={page.link} >
+                <h2 className={pageAnimeStyleSetter(index, page, visiblePagesLink)}>{page.text}</h2>
+              </Link>
+            ))}
+          </ul>
+        </div>
 
       </div>
 
-      {/* {console.log(window.innerWidth)} */}
+      {/* {windowDimensions.height / 16 > 37.5 && windowDimensions.width / 16 > 62.5 && <><DottedLine /> <Footer buttons={buttonData} /></>} */}
 
-      {window.innerWidth > 1000 && <><DottedLine /> <Footer buttons={buttonData} /></>}
-
+      <DottedLine />
+      <Footer buttons={buttonData} />
     </ div>
-
   )
 }

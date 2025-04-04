@@ -1,3 +1,15 @@
+h1 {
+    font-size: var(--fs1);
+}
+
+h2 {
+    font-size: var(--fs2);
+}
+
+h3 {
+    font-size: var(--fs3);
+}
+
 .sheet {
     width: calc(100vw - 24px);
     max-width: 1200px;
@@ -8,27 +20,36 @@
     flex-wrap: nowrap;
     align-items: stretch;
 
-    @media (width >=1000px) {
+    overflow-y: hidden;
+
+    @media (width >=62.5rem) {
         width: 70vw;
+    }
+
+    @media (width>=62.5rem) and (height>=37.5rem) {
+        height: 95vh;
+        overflow-y: hidden;
     }
 }
 
 /* STATS */
-.stats_banner {
-    min-height: 30vh;
-    padding: 0.5rem 0rem 0.5rem 0rem;
+.stats {
+    padding: 0.75rem 0rem 0.75rem 0rem;
 
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
 
-    @media (width>=600px) {
+    @media (width>=37.5rem) {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
 
-    font-size: var(--fs2);
+    @media (width>=62.5rem) and (height>=37.5rem) {
+        height: 40vh;
+        /* overflow-y: auto; */
+    }
 
     background: repeating-linear-gradient(-45deg,
         var(--green2) 0px,
@@ -40,99 +61,92 @@
 
 }
 
-.stats_text,
-.stats_text_white,
-.stats_text_hidden {
-    padding: 0.5rem 0rem 0.5rem 1rem;
+.stats_text {
+    padding: 0.75rem 0rem 0.75rem 1.5rem;
 
     display: flex;
     align-items: center;
     align-content: center;
 
-    @media (width>=600px) {
+    @media (width>=37.5rem) {
         width: calc(50% - 0.75rem);
     }
 
+    opacity: 0;
 }
 
-.stats_text,
-.stats_text_white {
+.stats_text.visible {
+    opacity: 1;
     animation: textLoadIn 200ms linear none;
 }
 
-.stats_text_white {
+.stats_text.white.visible {
     color: white;
-}
-
-.stats_text_hidden {
-    opacity: 0;
 }
 
 /* MAIN MENU */
 .main_menu {
-    min-height: 40vh;
 
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: stretch;
 
-    font-size: var(--fs2);
-
-    @media (width>1000px) {
-        max-height: 40vh;
-    }
-
 }
 
-.main_menu .heading,
-.main_menu .heading_hidden {
+.menu_heading {
     padding: 0.5rem 0rem 0.5rem 1rem;
 
     display: flex;
     align-items: center;
-}
-
-.main_menu .heading {
-    animation: textLoadIn 200ms linear none;
-}
-
-.main_menu .heading_hidden {
     opacity: 0;
 }
 
-.main_menu .scrollable_menu {
-    @media (width > 1000px) {
+.menu_heading.visible {
+    opacity: 1;
+    animation: textLoadIn 200ms linear none;
+}
+
+.scrollable_menu {
+    @media (width>=62.5rem) and (height>=37.5rem) {
+        max-height: 40vh;
         overflow-y: auto;
     }
 }
 
-/*"page" container is inside "link" container which is inside "main-menu" */
-.main_menu .scrollable_menu .link {
+a {
     display: block;
+    text-decoration: none;
 }
 
-.main_menu .scrollable_menu .link:hover {
+a:hover {
     color: white;
     animation: pageHover 2s infinite step-start;
 }
 
-.main_menu .scrollable_menu .link .page,
-.main_menu .scrollable_menu .link .page_hidden {
+.page {
     display: flex;
     padding: 0.5rem 0rem 0.5rem 1rem;
     align-items: center;
-}
-
-.main_menu .scrollable_menu .link .page {
-    animation: textLoadIn 200ms linear none
-}
-
-.main_menu .scrollable_menu .link .page_hidden {
     opacity: 0;
 }
 
-.main_menu .scrollable_menu .link:hover .page::before {
+.page.visible {
+    opacity: 1;
+    animation: textLoadIn 200ms linear none
+}
+
+.page::before {
+    content: "";
+    /* display: inline-block; */
+    width: 25px;
+    height: 25px;
+    margin-right: 2%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23a4e043'/%3E%3C/svg%3E");
+    background-size: cover;
+}
+
+a:hover .page::before {
     content: "";
     /* display: inline-block; */
     width: 25px;
@@ -143,17 +157,8 @@
     background-repeat: no-repeat;
 }
 
-.main_menu .scrollable_menu .link .page::before {
-    content: "";
-    /* display: inline-block; */
-    width: 25px;
-    height: 25px;
-    margin-right: 2%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23a4e043'/%3E%3C/svg%3E");
-    background-size: cover;
-}
 
-.dotted_line{
+.dotted_line {
     animation-delay: 800ms;
 }
 
