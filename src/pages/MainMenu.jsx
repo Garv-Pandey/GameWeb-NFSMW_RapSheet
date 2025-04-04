@@ -35,28 +35,23 @@ export function MainMenu() {
   const animationInterval = useRef(100) //time in ms
 
   useEffect(() => {
-    let time_elapsed = 0 //ms
-
     // stats_text
     stats_text.forEach((item, index) => {
       setTimeout(() => {
         setVisibleStats((prev) => [...prev, item]);
       }, (index + 1) * animationInterval.current); // Each item appears 500ms after the previous one
     });
-    time_elapsed = stats_text.length * animationInterval.current
-    time_elapsed += 500 //dotted line animation
 
     // menu heading
     setTimeout(() => {
       setHeadingClass(`${styles.menu_heading} ${styles.visible}`)
-    }, time_elapsed + animationInterval.current);
-    time_elapsed += animationInterval.current
+    }, 900);
 
     // pages
     pages.forEach((page, index) => {
       setTimeout(() => {
         setVisiblePagesLink((prev) => [...prev, page.link]);
-      }, time_elapsed + (index + 1) * animationInterval.current);
+      }, 900 + (index + 1) * animationInterval.current);
     });
 
   }, []);

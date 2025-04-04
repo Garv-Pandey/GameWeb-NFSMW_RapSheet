@@ -8,10 +8,8 @@ export function VehicleDatabase() {
     const buttonData = [
         { symbol: "Esc", text: "Back" }
     ]
-    const scrollableDataRef = useRef(null);
-    const [isVisible, setIsVisible] = useState(false);
 
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [isVisible, setIsVisible] = useState(false);
 
     const topText = [
         "Name: gabbu",
@@ -53,10 +51,6 @@ export function VehicleDatabase() {
 
     useEffect(() => {
 
-        // window resize
-        const handleResize = () => setWindowWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
-
         topText.forEach((text, index) => {
             setTimeout(() => {
                 setTopTextVisible(prev => [...prev, text])
@@ -67,22 +61,19 @@ export function VehicleDatabase() {
             setIsVisible(true);
         }, 800);
 
-
-        // Cleanup listener on unmount
-        return () => window.removeEventListener("resize", handleResize)
     }, []);
 
 
     const topTextAnimeClassSetter = (index, text, topTextVisible) => {
         if (topTextVisible.includes(text) && [0, 1].includes(index)) {
-            return styles.top_text_white
+            return `${styles.top_text} ${styles.white} ${styles.visible}`
         }
 
         if (topTextVisible.includes(text)) {
-            return styles.top_text
+            return `${styles.top_text} ${styles.visible}`
         }
 
-        return styles.top_text_hidden
+        return styles.top_text
     }
 
     return (
@@ -96,13 +87,13 @@ export function VehicleDatabase() {
                 ))}
             </ul>
 
-            <DottedLine />
+            <DottedLine delay={600}/>
 
-            <ul ref={scrollableDataRef}
-            className={`${styles.scrollable_data} ${isVisible ? styles.scrollable_data_visible : ''}`}>
+            <ul className={`${styles.scrollable_data} ${isVisible ? `${styles.scrollable_data} ${styles.visible}` : ''}`}>
+
                 {vehicleData.map((vehicle, index) =>
                     <li key={index} className={styles.vehicle_info}>
-                        <h2 className={styles.heading}>{vehicle.name}</h2>
+                        <h2 className={styles.heading} style={{color: 'white'}}>{vehicle.name}</h2>
                         <h2 className={styles.heading}>{vehicle.status}</h2>
                         <h2 className={styles.info}>Bounty: {vehicle.bounty}</h2>
                         <h2 className={styles.info}>Times Evaded: {vehicle.timesEvaded}</h2>
@@ -113,7 +104,9 @@ export function VehicleDatabase() {
                 )}
 
             </ul>
-            {window.innerWidth > 1000 && <><DottedLine /> <Footer buttons={buttonData} /></>}
+
+            <DottedLine delay={600}/>
+            <Footer buttons={buttonData} />
         </div>
     )
 }

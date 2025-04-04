@@ -1,6 +1,17 @@
+h1 {
+    font-size: var(--fs1);
+}
+
+h2 {
+    font-size: var(--fs2);
+}
+
+h3 {
+    font-size: var(--fs3);
+}
+
 .vehicleData {
     width: calc(100vw - 24px);
-    min-height: 90vh;
     max-width: 1200px;
     margin: 0 auto;
 
@@ -9,13 +20,22 @@
     flex-wrap: nowrap;
     align-items: stretch;
 
-    @media (width >=1000px) {
+    overflow-y: hidden;
+
+    text-transform: uppercase;
+
+    @media (width >=62.5rem) {
         width: 70vw;
+    }
+
+    @media (width>=62.5rem) and (height>=37.5rem) {
+        height: 95vh;
+        overflow-y: hidden;
     }
 }
 
 .top {
-    padding: 0.5rem 0rem 0.5rem 1rem;
+    padding: 0.25rem 0rem 0.25rem 0rem;
 
     display: flex;
     flex-direction: column;
@@ -23,51 +43,36 @@
     align-items: stretch;
 }
 
-.top .top_text,
-.top .top_text_hidden,
-.top .top_text_white {
-    padding: 0rem 0rem;
-    font-size: var(--fs2);
-}
-
-.top .top_text_white {
-    color: white;
-}
-
-.top .top_text {
-    animation: textLoadIn 200ms linear none;
-}
-
-.top .top_text_hidden {
+.top_text {
+    padding: 0.25rem 0rem 0.25rem 1.5rem;
     opacity: 0;
 }
 
-.dotted_line {
-    animation-delay: 700ms;
+.top_text.visible {
+    animation: textLoadIn 200ms linear none;
+    opacity: 1;
+}
+
+.top_text.white.visible {
+    color: white;
 }
 
 .scrollable_data {
-    height: 45vh;
-    padding: 0.5rem 0rem 0.5rem 0rem;
+    @media (width>=62.5rem) and (height>=37.5rem) {
+        height: 85vh;
+        overflow-y: auto;
+    }
 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    font-size: var(--fs2);
-
-    overflow-y: auto;
-    
     opacity: 0;
     transition: opacity 200ms linear;
 }
 
-.scrollable_data_visible{
+.scrollable_data.visible {
     opacity: 1;
 }
 
 .vehicle_info {
-    padding: 0rem 0rem 2rem 0rem;
+    padding: 1rem 0rem 1rem 0rem;
 
     display: flex;
     flex-direction: column;
@@ -80,7 +85,7 @@
     }
 }
 
-.vehicle_info .heading {
+.heading {
     width: 100%;
 
     padding: 0.25rem 0rem 0.25rem 1rem;
@@ -95,9 +100,9 @@
     }
 }
 
-.vehicle_info .info {
+.info {
     width: 100%;
-    padding: 0rem 0rem 0rem 1rem;
+    padding: 0.25rem 0rem 0.25rem 1rem;
 
     display: flex;
     align-items: center;
