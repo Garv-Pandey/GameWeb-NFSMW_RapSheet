@@ -1,10 +1,21 @@
+h1 {
+    font-size: var(--fs1);
+}
+
+h2 {
+    font-size: var(--fs2);
+}
+
+h3 {
+    font-size: var(--fs3);
+}
+
 ul {
     list-style-type: none;
 }
 
 .summary {
     width: calc(100vw - 24px);
-    min-height: 90vh;
     max-width: 1200px;
     margin: 0 auto;
 
@@ -13,16 +24,24 @@ ul {
     flex-wrap: nowrap;
     align-items: stretch;
 
-    @media (width >=1000px) {
+    overflow-y: hidden;
+
+    text-transform: uppercase;
+
+    @media (width >=62.5rem) {
         width: 70vw;
+    }
+
+    @media (width>=62.5rem) and (height>=37.5rem) {
+        height: 95vh;
+        overflow-y: hidden;
     }
 
 }
 
-.summary .summary_scrollable {
-    max-height: 73vh;
-
-    @media (width >=1000px) {
+.scrollable_summary {
+    @media (width>=62.5rem) and (height>=37.5rem) {
+        height: 85vh;
         overflow-y: auto;
     }
 }
@@ -31,35 +50,23 @@ ul {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-
 }
 
-.top .top_text,
-.top .top_text_white,
-.top .top_text_hidden {
-    padding: 0rem 0rem 0rem 1rem;
-
-}
-
-.top .top_text,
-.top .top_text_white {
-    animation: textLoadIn 200ms linear;
-}
-
-.top .top_text_white {
-    color: white;
-}
-
-.top .top_text_hidden {
+.top_text {
+    padding: 0.25rem 0rem 0.25rem 1.5rem;
     opacity: 0;
 }
 
-.dotted_line.banner {
-    animation-delay: 700ms;
+.top_text.visible {
+    animation: textLoadIn 200ms linear;
+    opacity: 1;
 }
 
-.summary .summary_banner,
-.summary_banner_hidden {
+.top_text.white.visible {
+    color: white;
+}
+
+.summary_banner {
     min-height: 20vh;
     padding: 1rem 1rem 1rem 2rem;
     background: repeating-linear-gradient(-45deg,
@@ -70,36 +77,33 @@ ul {
     background-size: 112.87px;
     animation: moveStripes 2s linear infinite;
     opacity: 0;
-    /* Initially transparent */
     transition: opacity 100ms linear;
-    /* Transition for opacity */
 }
 
-.summary .summary_banner {
+.summary_banner.visible {
     opacity: 1;
 }
 
-.summary .bottom {
+.bottom {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.summary .bottom .data_block,
-.summary .bottom .data_block_hidden {
+.data_block {
     min-width: 50%;
-    padding: 0rem 1rem 1rem 1rem;
+    padding: 0rem 1rem 1rem 0rem;
 
     opacity: 0;
     transition: opacity 200ms linear;
 }
 
-.summary .bottom .data_block {
+.data_block.visible {
     opacity: 1;
 }
 
-.dotted_line.footer {
-    animation-delay: 1500ms;
+.data_text{
+    padding: 0.25rem 0rem 0.25rem 1.5rem;
 }
 
 @keyframes moveStripes {

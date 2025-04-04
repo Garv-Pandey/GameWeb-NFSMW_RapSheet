@@ -9,9 +9,6 @@ export function Summary() {
         { symbol: "Esc", text: "Back" }
     ]
 
-    // event listner which causes rerendre on window size change for footer condition
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
     const topText = [
         "Name: gabbu",
         "Bounty: 403,300",
@@ -20,7 +17,7 @@ export function Summary() {
     ]
     const [topTextVisible, setTopTextVisible] = useState([])
 
-    const [bannerClass, setBannerClass] = useState(styles.summary_banner_hidden)
+    const [bannerClass, setBannerClass] = useState(styles.summary_banner)
 
     const bottomTextBlocks = [
         ["Infractions", "Unserverd: 31", "Served: 0"],
@@ -31,11 +28,6 @@ export function Summary() {
     const [dataBlocksIndexVisible, setDataBlocksIndexVisible] = useState([])
 
     useEffect(() => {
-
-        // window resize
-        const handleResize = () => setWindowWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
-
         topText.forEach((text, index) => {
             setTimeout(() => {
                 setTopTextVisible(prev => [...prev, text])
@@ -43,70 +35,68 @@ export function Summary() {
         })
 
         setTimeout(() => {
-            setBannerClass(styles.summary_banner)
-        }, 900);
+            setBannerClass(`${styles.summary_banner} ${styles.visible}`)
+        }, 800);
 
         bottomTextBlocks.forEach((block, index) => {
             setTimeout(() => {
                 setDataBlocksIndexVisible(prev => [...prev, index])
-            }, 900 + (index + 1) * 100);
+            }, 800 + (index + 1) * 100);
         })
 
-        // Cleanup listener on unmount
-        return () => window.removeEventListener("resize", handleResize)
     }, []);
 
 
-    const topTextAnimeClassSetter = (index, text, topTextVisible) => {
+    const topTextClassSetter = (index, text, topTextVisible) => {
         if (topTextVisible.includes(text) && [0, 1].includes(index)) {
-            return styles.top_text_white
+            return `${styles.top_text} ${styles.white} ${styles.visible}`
         }
 
         if (topTextVisible.includes(text)) {
-            return styles.top_text
+            return `${styles.top_text} ${styles.visible}`
         }
 
-        return styles.top_text_hidden
+        return styles.top_text
     }
 
-    const bottomBlockAnimeSetter = (index, block, bottomTextBlocks) => {
+    const bottomBlockClassSetter = (index, block, bottomTextBlocks) => {
         if (dataBlocksIndexVisible.includes(index)) {
-            return styles.data_block
+            return `${styles.data_block} ${styles.visible}`
         }
 
-        return styles.data_block_hidden
+        return styles.data_block
     }
 
     return (
         <div className={styles.summary}>
             <Header title={"Summary"} />
 
-            <div className={styles.summary_scrollable}>
+            <div className={styles.scrollable_summary}>
                 <ul className={styles.top}>
 
                     {topText.map((text, index) => (
-                        <li key={index} className={topTextAnimeClassSetter(index, text, topTextVisible)}>
+                        <li key={index} className={topTextClassSetter(index, text, topTextVisible)}>
                             <h2>{text}</h2>
                         </li>
                     ))}
 
                 </ul>
 
-                <DottedLine className={styles.banner} />
+                <DottedLine delay={600} />
 
                 <div className={bannerClass}>
                     <h2>Minor COde INfractions: Perform Routine Check For Citations and Infractions if encountered</h2>
                 </div>
 
-                <DottedLine className={styles.banner} />
+                <DottedLine delay={600}/>
 
                 <ul className={styles.bottom}>
 
                     {bottomTextBlocks.map((textBlock, index) => (
-                        <li key={index} className={bottomBlockAnimeSetter(index, textBlock, bottomTextBlocks)}>
+                        <li key={index} className={bottomBlockClassSetter(index, textBlock, bottomTextBlocks)}>
 
-                            {textBlock.map((text, innerIndex) => ( // Changed index to innerIndex for clarity
-                                <h2 key={innerIndex} style={innerIndex == 0 ? { color: "white" } : {}}>{text}</h2>
+                            {textBlock.map((text, innerIndex) => (
+                                <h2 key={innerIndex} className={styles.data_text} style={innerIndex == 0 ? { color: "white" } : {}}>{text}</h2>
                             ))}
 
                         </li>
@@ -115,7 +105,8 @@ export function Summary() {
                 </ul>
             </div>
 
-            {window.innerWidth > 1000 && <><DottedLine className={styles.footer}/> <Footer buttons={buttonData} /></>}
+            <DottedLine delay={1300}/>
+            <Footer buttons={buttonData} />
         </div>
 
 
