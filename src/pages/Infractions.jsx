@@ -26,10 +26,6 @@ export function Infractions() {
         { infraction: "DAMAGE TO PROPERTY", unserved: 0, total: 18 },
         { infraction: "RESISTING ARREST", unserved: 1, total: 24 },
         { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
-        { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
-        { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
-        { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
-        { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
     ];
 
     const [nextRowVisible, setnextRowVsible] = useState(0) //table header is row 0 table body starts form 1
@@ -50,9 +46,14 @@ export function Infractions() {
             }, (index + 1) * 100);
         })
 
+        // table header-row background
+        setTimeout(() => {
+            setnextRowVsible(prev => prev + 1);
+        },600 + 50)
+
         // table row background
         infractionData.forEach((infraction, index) => {
-            if (index < infractionData.length + 1) {
+            if (index < infractionData.length) {
                 setTimeout(() => {
                     setnextRowVsible(prev => prev + 1);
                 }, 600 + (index + 1) * 50);
@@ -63,7 +64,7 @@ export function Infractions() {
         for (let i = 0; i < Object.keys(infractionData[0]).length; i++) {
             setTimeout(() => {
                 setNextColumnVisible(prev => prev + 1)
-            }, (infractionData.length * 50 + 300) + (i + 1) * 100);
+            }, 600 + (infractionData.length * 50) + i * 100);
         }
 
     }, []);
@@ -83,7 +84,7 @@ export function Infractions() {
 
 
     const tableRowClassSetter = (index, nextRowVisible) => {
-        if (index < nextRowVisible) {
+        if (index < nextRowVisible) { 
             return `${styles.tr} ${styles.visible}`
         }
 
