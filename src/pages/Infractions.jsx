@@ -32,13 +32,15 @@ export function Infractions() {
         { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
     ];
 
-    const [nextRowVisible, setnextRowVsible] = useState(0)
+    const [nextRowVisible, setnextRowVsible] = useState(0) //table header is row 0 table body starts form 1
 
-    const [nextColumnVisible, setNextColumnVisible] = useState(1)
+    const [nextColumnVisible, setNextColumnVisible] = useState(1) //first row starts from 1
 
     const hasScheduledTimeouts = useRef(false) //to prevent strict mode from mounting useeffect twice and setting the same timeouts twice (sice we are not clearing each timeout on unmount)
 
     useEffect(() => {
+
+        // top data
         if (hasScheduledTimeouts.current) return;
         hasScheduledTimeouts.current = true;
 
@@ -48,14 +50,16 @@ export function Infractions() {
             }, (index + 1) * 100);
         })
 
+        // table row background
         infractionData.forEach((infraction, index) => {
-            if (index < infractionData.length) {
+            if (index < infractionData.length + 1) {
                 setTimeout(() => {
                     setnextRowVsible(prev => prev + 1);
                 }, 600 + (index + 1) * 50);
             }
         })
 
+        // table columns
         for (let i = 0; i < Object.keys(infractionData[0]).length; i++) {
             setTimeout(() => {
                 setNextColumnVisible(prev => prev + 1)
@@ -78,7 +82,7 @@ export function Infractions() {
     }
 
 
-    const tableRowClassSetter = (index, data, nextRowVisible) => {
+    const tableRowClassSetter = (index, nextRowVisible) => {
         if (index < nextRowVisible) {
             return `${styles.tr} ${styles.visible}`
         }
@@ -105,12 +109,12 @@ export function Infractions() {
                 ))}
             </ul>
 
-            <DottedLine />
+            <DottedLine delay={500} />
 
             <div className={styles.infractions_scrollable}>
                 <table className={styles.infractions_table}>
                     <thead>
-                        <tr className={`${styles.tr} ${styles.visible}`}>
+                        <tr className={tableRowClassSetter(0, nextRowVisible)}>
                             <th className={columnClassStter(1, nextColumnVisible)}></th>
                             <th className={columnClassStter(2, nextColumnVisible)}><h2>UNSERVED</h2></th>
                             <th className={columnClassStter(3, nextColumnVisible)}><h2>TOTAL</h2></th>
@@ -118,7 +122,7 @@ export function Infractions() {
                     </thead>
                     <tbody>
                         {infractionData.map((item, index) => (
-                            <tr key={index} className={tableRowClassSetter(index, item, nextRowVisible)}>
+                            <tr key={index} className={tableRowClassSetter(index + 1, nextRowVisible)}>
                                 <td className={columnClassStter(1, nextColumnVisible)}><h2>{item.infraction}</h2></td>
                                 <td className={columnClassStter(2, nextColumnVisible)} align="center"><h2>{item.unserved}</h2></td>
                                 <td className={columnClassStter(3, nextColumnVisible)} align="center"><h2>{item.total}</h2></td>
@@ -128,7 +132,7 @@ export function Infractions() {
                 </table>
             </div>
 
-            <DottedLine />
+            <DottedLine delay={500} />
 
             <Footer buttons={buttonData} />
         </div>
