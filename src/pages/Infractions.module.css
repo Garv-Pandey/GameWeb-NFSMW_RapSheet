@@ -59,6 +59,7 @@ h3 {
 .infractions_scrollable {
     width: calc(100vw - 24px);
     overflow-x: auto;
+
     @media (width>=62.5rem) and (height>=37.5rem) {
         width: 100%;
         height: 85vh;
@@ -71,39 +72,60 @@ h3 {
     border-collapse: collapse;
 }
 
-th {
-    width: 100%;
-    
-    
-    background-color: var(--green3);
-    text-align: left;
+tr {
+    height: 2.5rem;
+    opacity: 0;
+}
 
+tr.visible {
+    opacity: 1;
+    transition: opacity 50ms linear;
+}
+
+tr:nth-child(even) {
+    background-color: var(--green3);
+}
+
+th {
+    background-color: var(--green3);
 }
 
 th:nth-child(1) {
     min-width: 15ch;
-    padding: 0rem 0rem 0rem 1rem;
-    width: 60%;
-}
-
-td:nth-child(1) {
-    padding: 0rem 0rem 0rem 1rem;
-    width: 60%;
+    color: transparent;
 }
 
 th:nth-child(2),
 th:nth-child(3) {
-    width: 20%;
+    padding: 0rem .5rem;
     text-align: center;
+    color: transparent;
 }
 
-tr{
-    height: 2.5rem;
+th.column_visible:nth-child(1),
+th.column_visible:nth-child(2),
+th.column_visible:nth-child(3) {
+    color: var(--green1);
+    transition: color 100ms linear;
 }
 
-tr:nth-child(even){
-    background-color: var(--green3);
+td:nth-child(1) {
+    padding: 0rem 0rem 0rem 1.5rem;
+    color: transparent;
 }
-/* .odd_row {
-    background-color: var(--green3);
-} */
+
+td:nth-child(2),
+td:nth-child(3) {
+    color: transparent;
+}
+
+td.column_visible:nth-child(1) {
+    color: var(--green1);
+    transition: color 100ms linear;
+}
+
+td.column_visible:nth-child(2),
+td.column_visible:nth-child(3) {
+    transition: color 100ms linear;
+    color: white;
+}
