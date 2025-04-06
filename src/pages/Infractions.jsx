@@ -49,7 +49,7 @@ export function Infractions() {
         // table header-row background
         setTimeout(() => {
             setnextRowVsible(prev => prev + 1);
-        },600 + 50)
+        }, 600 + 50)
 
         // table row background
         infractionData.forEach((infraction, index) => {
@@ -83,20 +83,38 @@ export function Infractions() {
     }
 
 
-    const tableRowClassSetter = (index, nextRowVisible) => {
-        if (index < nextRowVisible) { 
-            return `${styles.tr} ${styles.visible}`
+    const rowClassSetter = (is_header, index, nextRowVisible) => {
+        if (is_header) {
+            if (index < nextRowVisible) {
+                return `${styles.row_header} ${styles.visible}`
+            }
+
+            return styles.row_header
         }
 
-        return styles.tr
+        if (index < nextRowVisible) {
+            return `${styles.row_body} ${styles.visible}`
+        }
+
+        return styles.row_body
     }
 
-    const columnClassStter = (column_no, nextColumnVisible) => {
-        if (column_no < nextColumnVisible) {
-            return styles.column_visible
+    const columnClassStter = (is_header, column_no, nextColumnVisible) => {
+        const col_style = `col_${column_no}`
+
+        if (is_header || column_no == 1) {
+            if (column_no < nextColumnVisible) {
+                return `${styles[col_style]} ${styles.visible_text}`
+            }
+
+            return styles[col_style]
         }
 
-        return ''
+        if (column_no < nextColumnVisible) {
+            return `${styles[col_style]} ${styles.visible_text} ${styles.white}`
+        }
+
+        return styles[col_style]
     }
 
     return (
@@ -115,18 +133,18 @@ export function Infractions() {
             <div className={styles.infractions_scrollable}>
                 <table className={styles.infractions_table}>
                     <thead>
-                        <tr className={tableRowClassSetter(0, nextRowVisible)}>
-                            <th className={columnClassStter(1, nextColumnVisible)}></th>
-                            <th className={columnClassStter(2, nextColumnVisible)}><h2>UNSERVED</h2></th>
-                            <th className={columnClassStter(3, nextColumnVisible)}><h2>TOTAL</h2></th>
+                        <tr className={rowClassSetter(true, 0, nextRowVisible)}>
+                            <th className={columnClassStter(true, 1, nextColumnVisible)}></th>
+                            <th className={columnClassStter(true, 2, nextColumnVisible)}><h2>UNSERVED</h2></th>
+                            <th className={columnClassStter(true, 3, nextColumnVisible)}><h2>TOTAL</h2></th>
                         </tr>
                     </thead>
                     <tbody>
                         {infractionData.map((item, index) => (
-                            <tr key={index} className={tableRowClassSetter(index + 1, nextRowVisible)}>
-                                <td className={columnClassStter(1, nextColumnVisible)}><h2>{item.infraction}</h2></td>
-                                <td className={columnClassStter(2, nextColumnVisible)} align="center"><h2>{item.unserved}</h2></td>
-                                <td className={columnClassStter(3, nextColumnVisible)} align="center"><h2>{item.total}</h2></td>
+                            <tr key={index} className={rowClassSetter(false, index + 1, nextRowVisible)}>
+                                <td className={columnClassStter(false, 1, nextColumnVisible)}><h2>{item.infraction}</h2></td>
+                                <td className={columnClassStter(false, 2, nextColumnVisible)} align="center"><h2>{item.unserved}</h2></td>
+                                <td className={columnClassStter(false, 3, nextColumnVisible)} align="center"><h2>{item.total}</h2></td>
                             </tr>
                         ))}
                     </tbody>
@@ -136,6 +154,6 @@ export function Infractions() {
             <DottedLine delay={500} />
 
             <Footer buttons={buttonData} />
-        </div>
+        </div >
     )
 }

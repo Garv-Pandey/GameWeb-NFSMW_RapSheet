@@ -72,86 +72,55 @@ h3 {
     border-collapse: collapse;
 }
 
-tr {
+.row_header,
+.row_body {
     height: 2.5rem;
     opacity: 0;
 }
 
-tr.visible {
-    opacity: 1;
-    transition: opacity 50ms linear;
-}
-
-tr:nth-child(even) {
-    background-color: var(--green3);
-}
-
-th {
-    background-color: var(--green3);
-}
-
-th:nth-child(1) {
-    padding: 0rem 0rem 0rem 1.5rem;
+.col_1 {
+    padding: 0rem 0.5rem 0rem 1.5rem;
     text-align: start;
     color: transparent;
 }
 
-th:nth-child(2) {
-    padding: 0;
+.col_2 {
+    min-width: 15ch;
+    padding: 0rem 0.5rem;
     text-align: start;
     color: transparent;
 }
 
-
-th:nth-child(3) {
-    padding: 0rem 1.5rem 0rem 0rem;
+.col_3 {
+    padding: 0rem 1.5rem 0rem 0.5rem;
     text-align: end;
     color: transparent;
 }
 
-th.column_visible:nth-child(1),
-th.column_visible:nth-child(2),
-th.column_visible:nth-child(3) {
-    color: var(--green1);
-    transition: color 100ms linear;
+.row_header {
+    background-color: var(--green3);
 }
 
-td:nth-child(1) {
-    padding: 0rem 0rem 0rem 1.5rem;
-    color: transparent;
-}
-
-td:nth-child(3) {
-    text-align: end;
-    padding: 0rem 1.5rem 0rem 0rem;
-    color: transparent;
-}
-
-td:nth-child(2),
-td:nth-child(3) {
-    color: transparent;
-}
-
-td.column_visible:nth-child(2) {
-    color: var(--green1);
-    transition: color 100ms linear;
-}
-
-td.column_visible:nth-child(1),
-td.column_visible:nth-child(3) {
-    transition: color 100ms linear;
-    color: white;
+.row_body:nth-child(even) {
+    background-color: var(--green3);
 }
 
 .total_cost{
     text-align: end;
-    color: white;
     opacity: 0;
+}
+
+.visible{
+    opacity: 1;
     transition: opacity 100ms linear;
 }
 
-.total_cost.visible{
-    text-align: end;
-    color: white;
-    opacity: 1;
+.visible_text {
+    color: inherit;
+    transition: color 100ms linear;
 }
+
+.white{
+    color: white;
+}
+

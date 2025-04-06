@@ -27,11 +27,11 @@ export function CostToState() {
         { qty: 109, category: "SPIKE STRIPS DEPLOYED", cost: 27250 },
         { qty: 10, category: "HELICOPTERS DEPLOYED", cost: 20000 },
     ];
-    const totalCost = (data) => {
+    const calculatetotalCost = (data) => {
         const totalCost = data.reduce((sum, item) => sum + item.cost, 0);
         return totalCost.toLocaleString('en-US');
     };
-    const total_cost = totalCost(costData)
+    const total_cost = calculatetotalCost(costData)
     const [totalCostStyle, setTotalCostStyle] = useState(styles.total_cost)
 
     const [nextRowVisible, setnextRowVsible] = useState(0) //table header is row 0 table body starts form 1
@@ -75,7 +75,7 @@ export function CostToState() {
 
         // cost to state 
         setTimeout(() => {
-            setTotalCostStyle(`${styles.total_cost} ${styles.visible}`)
+            setTotalCostStyle(`${styles.total_cost} ${styles.visible} ${styles.white}`)
         }, 600 + (costData.length * 50) + 300);
 
     }, []);
@@ -94,20 +94,38 @@ export function CostToState() {
     }
 
 
-    const tableRowClassSetter = (index, nextRowVisible) => {
-        if (index < nextRowVisible) {
-            return `${styles.tr} ${styles.visible}`
+    const rowClassSetter = (is_header, index, nextRowVisible) => {
+        if (is_header) {
+            if (index < nextRowVisible) {
+                return `${styles.row_header} ${styles.visible}`
+            }
+
+            return styles.row_header
         }
 
-        return styles.tr
+        if (index < nextRowVisible) {
+            return `${styles.row_body} ${styles.visible}`
+        }
+
+        return styles.row_body
     }
 
-    const columnClassStter = (column_no, nextColumnVisible) => {
-        if (column_no < nextColumnVisible) {
-            return styles.column_visible
+    const columnClassStter = (is_header, column_no, nextColumnVisible) => {
+        const col_style = `col_${column_no}`
+
+        if (is_header || column_no == 2) {
+            if (column_no < nextColumnVisible) {
+                return `${styles[col_style]} ${styles.visible_text}`
+            }
+
+            return styles[col_style]
         }
 
-        return ''
+        if (column_no < nextColumnVisible) {
+            return `${styles[col_style]} ${styles.visible_text} ${styles.white}`
+        }
+
+        return styles[col_style]
     }
 
 
@@ -128,18 +146,18 @@ export function CostToState() {
             <div className={styles.costToState_scrollable}>
                 <table className={styles.costToState_table}>
                     <thead>
-                        <tr className={tableRowClassSetter(0, nextRowVisible)}>
-                            <th className={columnClassStter(1, nextColumnVisible)}><h2>QTY</h2></th>
-                            <th className={columnClassStter(2, nextColumnVisible)}><h2>CATEGORY</h2></th>
-                            <th className={columnClassStter(3, nextColumnVisible)}><h2>COST</h2></th>
+                        <tr className={rowClassSetter(true, 0, nextRowVisible)}>
+                            <th className={columnClassStter(true, 1, nextColumnVisible)}><h2>QTY</h2></th>
+                            <th className={columnClassStter(true, 2, nextColumnVisible)}><h2>CATEGORY</h2></th>
+                            <th className={columnClassStter(true, 3, nextColumnVisible)}><h2>COST</h2></th>
                         </tr>
                     </thead>
                     <tbody>
                         {costData.map((item, index) => (
-                            <tr key={index} className={tableRowClassSetter(index + 1, nextRowVisible)}>
-                                <td className={columnClassStter(1, nextColumnVisible)}><h2>{item.qty}</h2></td>
-                                <td className={columnClassStter(2, nextColumnVisible)} ><h2>{item.category}</h2></td>
-                                <td className={columnClassStter(3, nextColumnVisible)} align="center"><h2>{item.cost}</h2></td>
+                            <tr key={index} className={rowClassSetter(false, index + 1, nextRowVisible)}>
+                                <td className={columnClassStter(false, 1, nextColumnVisible)}><h2>{item.qty}</h2></td>
+                                <td className={columnClassStter(false, 2, nextColumnVisible)} ><h2>{item.category}</h2></td>
+                                <td className={columnClassStter(false, 3, nextColumnVisible)} align="center"><h2>{item.cost}</h2></td>
                             </tr>
                         ))}
                     </tbody>
