@@ -1,28 +1,36 @@
-.dotted_line {
-    min-height: 1vh;
-    background: repeating-linear-gradient(to right,
-            #88AA44,
-            #88AA44 1%,
-            transparent 1%,
-            transparent 2%);
-    margin: 1vh 0;
-
-    opacity: 0;
-    animation: extendLine 0.25s linear forwards;
+.dotted_line_wrapper {
+    height: 1vh;
+    margin: 1vh 0vh;
+    overflow: hidden;
 }
 
-@keyframes extendLine {
+.dotted_line {
+    height: 1vh;
+    width: 100%;
+    background: repeating-linear-gradient(
+        to right,
+        var(--green1),
+        var(--green1) 1%,
+        transparent 1%,
+        transparent 2%
+    );
+    transform: scaleX(5);
+    /* transform-origin: left; */
+    opacity: 0;
+
+    animation: snapDots 0.25s linear forwards;
+}
+
+@keyframes snapDots {
     0% {
         transform: scaleX(5);
         opacity: 0;
     }
-
     30% {
         opacity: 1;
     }
-
     100% {
-        opacity: 1;
         transform: scaleX(1);
+        opacity: 1;
     }
 }

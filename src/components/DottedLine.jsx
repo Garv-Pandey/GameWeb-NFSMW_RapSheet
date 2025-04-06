@@ -1,8 +1,12 @@
 import styles from "./DottedLine.module.css"
 
-export function DottedLine({ delay }) {
-
+export function DottedLine({ delay = 0 }) {
     return (
-        <div style={{ animationDelay: `${delay}ms` }} className={styles.dotted_line}></div>
+        <div className={styles.dotted_line_wrapper}>
+            <div
+                className={styles.dotted_line}
+                style={{ animationDelay: `${delay}ms` }}
+            ></div>
+        </div>
     )
 }
