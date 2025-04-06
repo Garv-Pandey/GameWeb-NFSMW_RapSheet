@@ -102,7 +102,7 @@ export function MainMenu() {
 
           <ul >
             {pages.map((page, index) => (
-              <Link key={index} to={page.link} >
+              <Link key={index} to={page.link} className={styles.link}>
                 <h2 className={pageStyleSetter(index, page, visiblePagesLink)}>{page.text}</h2>
               </Link>
             ))}

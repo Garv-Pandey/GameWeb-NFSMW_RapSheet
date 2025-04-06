@@ -116,12 +116,13 @@ h3 {
     }
 }
 
-a {
+.link {
+    color: inherit;
     display: block;
     text-decoration: none;
 }
 
-a:hover {
+.link:hover {
     color: white;
     animation: pageHover 2s infinite step-start;
 }

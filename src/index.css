@@ -85,17 +85,14 @@ body {
 
 
 /* react router link color and devoration removed*/
-a {
+/* a {
     color: inherit;
-    /* Inherits the text color from the parent */
     text-decoration: none;
-    /* Removes underline */
 }
 
 a:visited {
     color: inherit;
-    /* Prevents purple color for visited links */
-}
+} */
 
 /* orbitron-900 - latin */
 @font-face {

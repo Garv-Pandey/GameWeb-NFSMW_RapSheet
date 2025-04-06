@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Header } from "../components/Header"
 import { DottedLine } from "../components/DottedLine"
 import { Footer } from "../components/Footer"
@@ -10,6 +10,12 @@ export function TopPursuits() {
         { symbol: "Esc", text: "Back" },
         { symbol: "Esc", text: "Back" }
     ]
+
+    const topText = [
+        "Name: gabbu",
+        "Bounty: 403,300",
+    ]
+    const [topTextVisible, setTopTextVisible] = useState([])
 
     const topPursuitsData = [
         {
@@ -47,39 +53,113 @@ export function TopPursuits() {
             bounty: 185000,
             length: "3:42.63",
         },
+        {
+            rank: 5,
+            carUsed: "Toyota Corolla GT-S",
+            id: "MW-9W1C2N9U",
+            bounty: 185000,
+            length: "3:42.63",
+        },
+        {
+            rank: 7,
+            carUsed: "Toyota Corolla GT-S",
+            id: "MW-9W1C2N9U",
+            bounty: 185000,
+            length: "3:42.63",
+        },
+        {
+            rank: 8,
+            carUsed: "Toyota Corolla GT-S",
+            id: "MW-9W1C2N9U",
+            bounty: 185000,
+            length: "3:42.63",
+        },
     ];
+
+    const [nextRankVisible, setNextRankVisible] = useState(0)
+
+
+    const hasScheduledTimeouts = useRef(false) //to prevent strict mode from mounting useeffect twice and setting the same timeouts twice (sice we are not clearing each timeout on unmount)
+
+    useEffect(() => {
+
+        // top data
+        if (hasScheduledTimeouts.current) return;
+        hasScheduledTimeouts.current = true;
+
+        topText.forEach((text, index) => {
+            setTimeout(() => {
+                setTopTextVisible(prev => [...prev, text])
+            }, (index + 1) * 100);
+        })
+
+        topPursuitsData.forEach((data, index) => {
+            setTimeout(() => {
+                setNextRankVisible(prev => prev + 1)
+            }, topText.length * 100 + 200 + (index + 1) * 100);
+        })
+    })
+
+    const topTextClassSetter = (index, text, topTextVisible) => {
+        if (topTextVisible.includes(text) && [0, 1].includes(index)) {
+            return `${styles.top_text} ${styles.white} ${styles.visible}`
+        }
+
+        if (topTextVisible.includes(text)) {
+            return `${styles.top_text} ${styles.visible}`
+        }
+
+        return styles.top_text
+    }
+
+    const pursuitDataClassSetter = (index, nextRankVisible) => {
+        if (index < nextRankVisible) {
+            return `${styles.data} ${styles.visible}`
+        }
+
+        return styles.data
+    }
 
     return (
         <div className={styles.top_pursuits}>
             <Header title={"Top 5 Pursuits"} />
 
-            <div className={styles.top}>
-                <h2>Name: gabbu</h2>
-                <h2 className={styles.bounty}>Bounty: 6,580,800</h2>
+            <ul className={styles.top}>
+                {topText.map((text, index) => (
+                    <li key={index} className={topTextClassSetter(index, text, topTextVisible)}><h2>{text}</h2></li>
+                ))}
+            </ul>
+
+            <DottedLine delay={topText.length * 100 +100} />
+            <div className={styles.topPursuits_scrollable}>
+
+                <ul>
+
+                    {topPursuitsData.map((data, index) => (
+                        <Link key={index} to={`/top-pursuits/${data.id}`} className={styles.link}>
+
+                            <li key={index} className={pursuitDataClassSetter(index, nextRankVisible)}>
+                                <h2 className={styles.rank}>{data.rank}</h2>
+                                <div className={styles.stat}>
+                                    <h2 className={styles.car}>Car Used: {data.carUsed}</h2>
+                                    <h2 className={styles.detail}>ID: {data.id}</h2>
+                                    <h2 className={styles.detail}>Bounty: {data.bounty}</h2>
+                                    <h2 className={styles.detail}>Length: {data.length}</h2>
+                                </div>
+                            </li>
+
+                        </ Link>
+
+                    ))}
+
+                </ul>
+
             </div>
 
-            <DottedLine />
+            <DottedLine delay={topText.length * 100 +100} />
 
-            <ol className={styles.pursuit_data}>
-                {topPursuitsData.map((data, index) => (
-                    <Link key={index} to={`/top-pursuits/${data.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
+            <Footer buttons={buttonData} />
 
-                    <li key={index} className={styles.data}>
-                        <h2 className={styles.rank}>{data.rank}</h2>
-                        <div className={styles.stat}>
-                            <h2 style={{ color: "white" }}>Car Used: {data.carUsed}</h2>
-                            <h2>ID: {data.id}</h2>
-                            <h2>Bounty: {data.bounty}</h2>
-                            <h2>Length{data.length}</h2>
-                        </div>
-                    </li>
-
-                    </ Link>
-
-                ))}
-
-            </ol>
-            {window.innerWidth > 1000 && <><DottedLine /> <Footer buttons={buttonData} /></>}
         </div>
     )
 }

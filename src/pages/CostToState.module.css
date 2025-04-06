@@ -109,7 +109,7 @@ h3 {
     text-align: end;
     opacity: 0;
 }
-
+/* format classes */
 .visible{
     opacity: 1;
     transition: opacity 100ms linear;
