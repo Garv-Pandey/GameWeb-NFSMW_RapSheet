@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   { path: "/rankings", element: <Rankings /> },
 
   {path: "/top-pursuits/:id", element: <PursuitDetails />},
-  {path: "/rankings/:id", element: <CategoryRankings />}
+  {path: "/rankings/:category", element: <CategoryRankings />}
 ])
 
 createRoot(document.getElementById('root')).render(

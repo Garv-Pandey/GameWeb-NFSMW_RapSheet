@@ -5,7 +5,7 @@ import { Header } from "../../components/Header"
 import { DottedLine } from "../../components/DottedLine"
 import styles from "./PursuitDetails.module.css"
 
-export function PursuitDetails(props) {
+export function PursuitDetails() {
     const { id } = useParams()
 
     const buttonData = [
