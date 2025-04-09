@@ -14,25 +14,49 @@ export function Rankings() {
         "Name: gabbu",
         "Single Pursuit",
     ]
-    const [topTextVisible, setTopTextVisible] = useState([])
 
     const rankingCategories = [
-        { label: "PURSUIT LENGTH", value: 7 },
-        { label: "TOTAL POLICE VEHICLES INVOLVED", value: 5 },
-        { label: "POLICE VEHICLES DAMAGED", value: 6 },
-        { label: "POLICE VEHICLES IMMOBILIZED", value: 9 },
-        { label: "ROADBLOCKS DODGED", value: 8 },
-        { label: "SPIKE STRIPS DODGED", value: 8 },
-        { label: "COST TO STATE ACHIEVED", value: 8 },
+        { label: "PURSUIT LENGTH", value: 1 },
+        { label: "TOTAL POLICE VEHICLES INVOLVED", value: 1 },
+        { label: "POLICE VEHICLES DAMAGED", value: 1 },
+        { label: "POLICE VEHICLES IMMOBILIZED", value: 1 },
+        { label: "ROADBLOCKS DODGED", value: 1 },
+        { label: "SPIKE STRIPS DODGED", value: 1 },
+        { label: "COST TO STATE ACHIEVED", value: 1 },
         { label: "INFRACTIONS RECORDED", value: 1 },
-        { label: "HELICOPTERS DEPLOYED", value: 6 },
-        { label: "PURSUIT BOUNTY ACHIEVED", value: 5 },
+        { label: "HELICOPTERS DEPLOYED", value: 1 },
+        { label: "PURSUIT BOUNTY ACHIEVED", value: 1 },
     ];
+    
+    const [topTextVisible, setTopTextVisible] = useState([])
 
     const [selectCatgoryTextStyle, setSelectCatgoryTextStyle] = useState(styles.selectCategory_text)
+    
     const [nextPageVisible, setNextPageVisible] = useState(0);
 
     const hasScheduledTimeouts = useRef(false) //to prevent strict mode from mounting useeffect twice and setting the same timeouts twice (sice we are not clearing each timeout on unmount)
+
+    
+    const topTextClassSetter = (index, text, topTextVisible) => {
+        if (topTextVisible.includes(text) && [0, 1].includes(index)) {
+            return `${styles.top_text} ${styles.white} ${styles.visible}`
+        }
+
+        if (topTextVisible.includes(text)) {
+            return `${styles.top_text} ${styles.visible}`
+        }
+
+        return styles.top_text
+    }
+
+    const categoryPageStyleSetter = (index, nextPageVisible) => {
+        if (index < nextPageVisible) {
+            return `${styles.category_page} ${styles.visible}`
+        }
+
+        return styles.category_page
+    }
+
 
     useEffect(() => {
 
@@ -60,26 +84,6 @@ export function Rankings() {
         })
     })
 
-
-    const topTextClassSetter = (index, text, topTextVisible) => {
-        if (topTextVisible.includes(text) && [0, 1].includes(index)) {
-            return `${styles.top_text} ${styles.white} ${styles.visible}`
-        }
-
-        if (topTextVisible.includes(text)) {
-            return `${styles.top_text} ${styles.visible}`
-        }
-
-        return styles.top_text
-    }
-
-    const categoryPageStyleSetter = (index, nextPageVisible) => {
-        if (index < nextPageVisible) {
-            return `${styles.category_page} ${styles.visible}`
-        }
-
-        return styles.category_page
-    }
 
     return (
 

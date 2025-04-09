@@ -6,7 +6,6 @@ import { DottedLine } from "../../components/DottedLine"
 import styles from "./PursuitDetails.module.css"
 
 export function PursuitDetails() {
-    const { id } = useParams()
 
     const buttonData = [
         { symbol: "Esc", text: "Back" },
@@ -14,9 +13,8 @@ export function PursuitDetails() {
 
     const topText = [
         "Name: gabbu",
-        `id: ${id}`,
+        `id: ${useParams().id}`,
     ]
-    const [topTextVisible, setTopTextVisible] = useState([])
 
     const pursuit_details = {
         "MW-0X7I6R3Z": [
@@ -46,44 +44,16 @@ export function PursuitDetails() {
         }
     }
 
+    const [topTextVisible, setTopTextVisible] = useState([])
+
     const [nextRowVisible, setnextRowVsible] = useState(0) //table header is row 0 table body starts form 1
 
     const [nextColumnVisible, setNextColumnVisible] = useState(1) //first row starts from 1
 
-    const currentPursuit = pursuit_details[id]
+    const currentPursuit = pursuit_details[useParams().id]
 
     const hasScheduledTimeouts = useRef(false) //to prevent strict mode from mounting useeffect twice and setting the same timeouts twice (sice we are not clearing each timeout on unmount)
 
-    useEffect(() => {
-
-        // top data
-        if (hasScheduledTimeouts.current) return;
-        hasScheduledTimeouts.current = true;
-
-        // top text
-        topText.forEach((text, index) => {
-            setTimeout(() => {
-                setTopTextVisible(prev => [...prev, text])
-            }, (index + 1) * 100);
-        })
-
-        // table row background
-        currentPursuit.forEach((infraction, index) => {
-            if (index < currentPursuit.length) {
-                setTimeout(() => {
-                    setnextRowVsible(prev => prev + 1);
-                }, topText.length + 200 + (index + 1) * 50);
-            }
-        })
-
-        // table columns
-        for (let i = 0; i < Object.keys(currentPursuit[0]).length; i++) {
-            setTimeout(() => {
-                setNextColumnVisible(prev => prev + 1)
-            }, topText.length + 200 + currentPursuit.length * 50 + i * 100);
-        }
-
-    })
 
     const topTextClassSetter = (index, text, topTextVisible) => {
         if (topTextVisible.includes(text) && [0, 1].includes(index)) {
@@ -130,6 +100,39 @@ export function PursuitDetails() {
 
         return styles[col_style]
     }
+    
+
+    useEffect(() => {
+
+        // top data
+        if (hasScheduledTimeouts.current) return;
+        hasScheduledTimeouts.current = true;
+
+        // top text
+        topText.forEach((text, index) => {
+            setTimeout(() => {
+                setTopTextVisible(prev => [...prev, text])
+            }, (index + 1) * 100);
+        })
+
+        // table row background
+        currentPursuit.forEach((infraction, index) => {
+            if (index < currentPursuit.length) {
+                setTimeout(() => {
+                    setnextRowVsible(prev => prev + 1);
+                }, topText.length + 200 + (index + 1) * 50);
+            }
+        })
+
+        // table columns
+        for (let i = 0; i < Object.keys(currentPursuit[0]).length; i++) {
+            setTimeout(() => {
+                setNextColumnVisible(prev => prev + 1)
+            }, topText.length + 200 + currentPursuit.length * 50 + i * 100);
+        }
+
+    })
+
 
     return (
         <div className={styles.pursuit_details}>
@@ -149,7 +152,7 @@ export function PursuitDetails() {
                         {currentPursuit.map((item, index) => (
                             <tr key={index} className={rowClassSetter(false, index + 1, nextRowVisible)}>
                                 <td className={columnClassStter(false, 1, nextColumnVisible)}><h2>{item.detail}</h2></td>
-                                <td className={columnClassStter(false, 2, nextColumnVisible)} ><h2>{item.value}</h2></td>
+                                <td className={columnClassStter(false, 2, nextColumnVisible)} ><h2>{item.value.toLocaleString('en-US')}</h2></td>
                             </tr>
                         ))}
                     </tbody>

@@ -9,15 +9,12 @@ export function VehicleDatabase() {
         { symbol: "Esc", text: "Back" }
     ]
 
-    const [isVisible, setIsVisible] = useState(false);
-
     const topText = [
         "Name: gabbu",
         "Bounty: 403,300",
         "Cost To State: 399,750",
         "Cars Impounded: 0"
     ]
-    const [topTextVisible, setTopTextVisible] = useState([])
 
     const vehicleData = [
         {
@@ -49,6 +46,24 @@ export function VehicleDatabase() {
         },
     ];
 
+    const [topTextVisible, setTopTextVisible] = useState([])
+
+    const [isVisible, setIsVisible] = useState(false);
+
+    
+    const topTextAnimeClassSetter = (index, text, topTextVisible) => {
+        if (topTextVisible.includes(text) && [0, 1].includes(index)) {
+            return `${styles.top_text} ${styles.white} ${styles.visible}`
+        }
+
+        if (topTextVisible.includes(text)) {
+            return `${styles.top_text} ${styles.visible}`
+        }
+
+        return styles.top_text
+    }
+
+
     useEffect(() => {
 
         topText.forEach((text, index) => {
@@ -63,18 +78,6 @@ export function VehicleDatabase() {
 
     }, []);
 
-
-    const topTextAnimeClassSetter = (index, text, topTextVisible) => {
-        if (topTextVisible.includes(text) && [0, 1].includes(index)) {
-            return `${styles.top_text} ${styles.white} ${styles.visible}`
-        }
-
-        if (topTextVisible.includes(text)) {
-            return `${styles.top_text} ${styles.visible}`
-        }
-
-        return styles.top_text
-    }
 
     return (
 

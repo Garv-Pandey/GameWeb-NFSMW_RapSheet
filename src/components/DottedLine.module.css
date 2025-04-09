@@ -1,11 +1,11 @@
 .dotted_line_wrapper {
-    height: 1vh;
-    margin: 1vh 0vh;
+    height: 0.55rem;
+    margin: 0.55rem 0vh;
     overflow: hidden;
 }
 
 .dotted_line {
-    height: 1vh;
+    height: 0.55rem;
     width: 100%;
     background: repeating-linear-gradient(
         to right,
@@ -18,7 +18,7 @@
     /* transform-origin: left; */
     opacity: 0;
 
-    animation: snapDots 0.25s linear forwards;
+    animation: snapDots 200ms linear forwards;
 }
 
 @keyframes snapDots {

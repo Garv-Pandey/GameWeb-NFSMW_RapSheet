@@ -12,14 +12,14 @@ export function MainMenu() {
   ]
 
   const stats_text = ["Name: gabbu",
-    "Bounty: 403,300",
-    "Cost To State: 399,750",
-    "Fines Due: 7,200",
-    "Pursuits Evaded: 8",
-    "Busted: 0"]
-  const [visibleStats, setVisibleStats] = useState([]);
-
-  const [headingClass, setHeadingClass] = useState(styles.menu_heading)
+    "Bounty: 33,591,683",
+    "Cost To State: 5,399,750",
+    "Fines Due: 43,200",
+    "Pursuits Evaded: 44",
+    "Busted: 0",
+    "Cars Impounded: 0",
+    "Cars Monitored: 11"]
+  
 
   const pages = [{ link: "/summary", text: "Summary" },
   { link: "/vehicle-database", text: "Vehicle Database" },
@@ -27,34 +27,13 @@ export function MainMenu() {
   { link: "/cost-to-state", text: "Cost To State" },
   { link: "/top-pursuits", text: "Top 5 Pursuits" },
   { link: "/rankings", text: "Rankings" },
-  { link: "/rankings", text: "Rankings" },
-  { link: "/rankings", text: "Rankings" },
   ]
+
+  const [visibleStats, setVisibleStats] = useState([]);
+
+  const [headingClass, setHeadingClass] = useState(styles.menu_heading)
+
   const [visiblePagesLink, setVisiblePagesLink] = useState([]);
-
-  const animationInterval = useRef(100) //time in ms
-
-  useEffect(() => {
-    // stats_text
-    stats_text.forEach((item, index) => {
-      setTimeout(() => {
-        setVisibleStats((prev) => [...prev, item]);
-      }, (index + 1) * animationInterval.current); // Each item appears 500ms after the previous one
-    });
-
-    // menu heading
-    setTimeout(() => {
-      setHeadingClass(`${styles.menu_heading} ${styles.visible}`)
-    }, 900);
-
-    // pages
-    pages.forEach((page, index) => {
-      setTimeout(() => {
-        setVisiblePagesLink((prev) => [...prev, page.link]);
-      }, 900 + (index + 1) * animationInterval.current);
-    });
-
-  }, []);
 
 
   const statsTextStyleSetter = (index, text, visibleStats) => {
@@ -69,8 +48,6 @@ export function MainMenu() {
     return styles.stats_text
   }
 
-
-
   const pageStyleSetter = (index, page, visiblePagesLink) => {
     if (visiblePagesLink.includes(page.link)) {
       return `${styles.page} ${styles.visible}`
@@ -78,6 +55,29 @@ export function MainMenu() {
 
     return styles.page
   }
+
+
+  useEffect(() => {
+    // stats_text
+    stats_text.forEach((item, index) => {
+      setTimeout(() => {
+        setVisibleStats((prev) => [...prev, item]);
+      }, (index + 1) * 50); // Each item appears 500ms after the previous one
+    });
+
+    // menu heading
+    setTimeout(() => {
+      setHeadingClass(`${styles.menu_heading} ${styles.visible}`)
+    }, stats_text.length * 50 + 100 + 200);
+
+    // pages
+    pages.forEach((page, index) => {
+      setTimeout(() => {
+        setVisiblePagesLink((prev) => [...prev, page.link]);
+      }, stats_text.length * 50 + 100 + 200 + (index + 1) * 50);
+    });
+
+  }, []);
 
 
   return (
@@ -94,7 +94,7 @@ export function MainMenu() {
       </ul>
 
 
-      <DottedLine delay={800} />
+      <DottedLine delay={stats_text.length * 50 + 100} />
 
       <div className={styles.main_menu}>
         <h2 className={headingClass}>Main Menu:</h2>
@@ -111,8 +111,8 @@ export function MainMenu() {
 
       </div>
 
-      <DottedLine delay={800} />
-      
+      <DottedLine delay={stats_text.length * 50 + 100} />
+
       <Footer buttons={buttonData} />
     </ div>
   )

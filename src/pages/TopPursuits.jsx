@@ -15,7 +15,6 @@ export function TopPursuits() {
         "Name: gabbu",
         "Bounty: 403,300",
     ]
-    const [topTextVisible, setTopTextVisible] = useState([])
 
     const topPursuitsData = [
         {
@@ -76,29 +75,12 @@ export function TopPursuits() {
         },
     ];
 
-    const [nextRankVisible, setNextRankVisible] = useState(0)
+    const [topTextVisible, setTopTextVisible] = useState([])
 
+    const [nextRankVisible, setNextRankVisible] = useState(0)
 
     const hasScheduledTimeouts = useRef(false) //to prevent strict mode from mounting useeffect twice and setting the same timeouts twice (sice we are not clearing each timeout on unmount)
 
-    useEffect(() => {
-
-        // top data
-        if (hasScheduledTimeouts.current) return;
-        hasScheduledTimeouts.current = true;
-
-        topText.forEach((text, index) => {
-            setTimeout(() => {
-                setTopTextVisible(prev => [...prev, text])
-            }, (index + 1) * 100);
-        })
-
-        topPursuitsData.forEach((data, index) => {
-            setTimeout(() => {
-                setNextRankVisible(prev => prev + 1)
-            }, topText.length * 100 + 200 + (index + 1) * 100);
-        })
-    })
 
     const topTextClassSetter = (index, text, topTextVisible) => {
         if (topTextVisible.includes(text) && [0, 1].includes(index)) {
@@ -120,6 +102,27 @@ export function TopPursuits() {
         return styles.data
     }
 
+
+    useEffect(() => {
+
+        // top data
+        if (hasScheduledTimeouts.current) return;
+        hasScheduledTimeouts.current = true;
+
+        topText.forEach((text, index) => {
+            setTimeout(() => {
+                setTopTextVisible(prev => [...prev, text])
+            }, (index + 1) * 100);
+        })
+
+        topPursuitsData.forEach((data, index) => {
+            setTimeout(() => {
+                setNextRankVisible(prev => prev + 1)
+            }, topText.length * 100 + 200 + (index + 1) * 100);
+        })
+    })
+    
+
     return (
         <div className={styles.top_pursuits}>
             <Header title={"Top 5 Pursuits"} />
@@ -130,7 +133,7 @@ export function TopPursuits() {
                 ))}
             </ul>
 
-            <DottedLine delay={topText.length * 100 +100} />
+            <DottedLine delay={topText.length * 100 + 100} />
             <div className={styles.topPursuits_scrollable}>
 
                 <ul>
@@ -143,7 +146,7 @@ export function TopPursuits() {
                                 <div className={styles.stat}>
                                     <h2 className={styles.car}>Car Used: {data.carUsed}</h2>
                                     <h2 className={styles.detail}>ID: {data.id}</h2>
-                                    <h2 className={styles.detail}>Bounty: {data.bounty}</h2>
+                                    <h2 className={styles.detail}>Bounty: {data.bounty.toLocaleString('en-US')}</h2>
                                     <h2 className={styles.detail}>Length: {data.length}</h2>
                                 </div>
                             </li>
@@ -156,7 +159,7 @@ export function TopPursuits() {
 
             </div>
 
-            <DottedLine delay={topText.length * 100 +100} />
+            <DottedLine delay={topText.length * 100 + 100} />
 
             <Footer buttons={buttonData} />
 

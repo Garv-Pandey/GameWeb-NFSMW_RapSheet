@@ -15,9 +15,6 @@ export function Summary() {
         "Cost To State: 399,750",
         "Cars Impounded: 0"
     ]
-    const [topTextVisible, setTopTextVisible] = useState([])
-
-    const [bannerClass, setBannerClass] = useState(styles.summary_banner)
 
     const bottomTextBlocks = [
         ["Infractions", "Unserverd: 31", "Served: 0"],
@@ -25,26 +22,12 @@ export function Summary() {
         ["Fines", "Fines Due: 7,200", "Fines Paid: 0"],
         ["Police Vehicles", "Damaged: 41", "Immobilized: 43"],
     ]
+
+    const [topTextVisible, setTopTextVisible] = useState([])
+
+    const [bannerClass, setBannerClass] = useState(styles.summary_banner)
+
     const [dataBlocksIndexVisible, setDataBlocksIndexVisible] = useState([])
-
-    useEffect(() => {
-        topText.forEach((text, index) => {
-            setTimeout(() => {
-                setTopTextVisible(prev => [...prev, text])
-            }, (index + 1) * 100);
-        })
-
-        setTimeout(() => {
-            setBannerClass(`${styles.summary_banner} ${styles.visible}`)
-        }, 800);
-
-        bottomTextBlocks.forEach((block, index) => {
-            setTimeout(() => {
-                setDataBlocksIndexVisible(prev => [...prev, index])
-            }, 800 + (index + 1) * 100);
-        })
-
-    }, []);
 
 
     const topTextClassSetter = (index, text, topTextVisible) => {
@@ -67,6 +50,26 @@ export function Summary() {
         return styles.data_block
     }
 
+
+    useEffect(() => {
+        topText.forEach((text, index) => {
+            setTimeout(() => {
+                setTopTextVisible(prev => [...prev, text])
+            }, (index + 1) * 100);
+        })
+
+        setTimeout(() => {
+            setBannerClass(`${styles.summary_banner} ${styles.visible}`)
+        }, 800);
+
+        bottomTextBlocks.forEach((block, index) => {
+            setTimeout(() => {
+                setDataBlocksIndexVisible(prev => [...prev, index])
+            }, 800 + (index + 1) * 100);
+        })
+
+    }, []);
+
     return (
         <div className={styles.summary}>
             <Header title={"Summary"} />
@@ -88,7 +91,7 @@ export function Summary() {
                     <h2>Minor COde INfractions: Perform Routine Check For Citations and Infractions if encountered</h2>
                 </div>
 
-                <DottedLine delay={600}/>
+                <DottedLine delay={600} />
 
                 <ul className={styles.bottom}>
 
@@ -105,7 +108,7 @@ export function Summary() {
                 </ul>
             </div>
 
-            <DottedLine delay={1300}/>
+            <DottedLine delay={1300} />
             <Footer buttons={buttonData} />
         </div>
 

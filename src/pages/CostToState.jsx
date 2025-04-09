@@ -13,8 +13,6 @@ export function CostToState() {
         "Name: gabbu",
         "Bounty: 403,300",
     ]
-    const [topTextVisible, setTopTextVisible] = useState([])
-
 
     const costData = [
         { qty: 3547, category: "DAMAGE TO PROPERTY", cost: 531850 },
@@ -27,58 +25,16 @@ export function CostToState() {
         { qty: 109, category: "SPIKE STRIPS DEPLOYED", cost: 27250 },
         { qty: 10, category: "HELICOPTERS DEPLOYED", cost: 20000 },
     ];
-    const calculatetotalCost = (data) => {
-        const totalCost = data.reduce((sum, item) => sum + item.cost, 0);
-        return totalCost.toLocaleString('en-US');
-    };
-    const total_cost = calculatetotalCost(costData)
-    const [totalCostStyle, setTotalCostStyle] = useState(styles.total_cost)
 
+    const [topTextVisible, setTopTextVisible] = useState([])
+    
     const [nextRowVisible, setnextRowVsible] = useState(0) //table header is row 0 table body starts form 1
-
+    
     const [nextColumnVisible, setNextColumnVisible] = useState(1) //first row starts from 1
-
+    
+    const [totalCostStyle, setTotalCostStyle] = useState(styles.total_cost)
+    
     const hasScheduledTimeouts = useRef(false) //to prevent strict mode from mounting useeffect twice and setting the same timeouts twice (sice we are not clearing each timeout on unmount)
-
-    useEffect(() => {
-
-        // top data
-        if (hasScheduledTimeouts.current) return;
-        hasScheduledTimeouts.current = true;
-
-        topText.forEach((text, index) => {
-            setTimeout(() => {
-                setTopTextVisible(prev => [...prev, text])
-            }, (index + 1) * 100);
-        })
-
-        // table header-row background
-        setTimeout(() => {
-            setnextRowVsible(prev => prev + 1);
-        }, 600 + 50)
-
-        // table row background
-        costData.forEach((infraction, index) => {
-            if (index < costData.length) {
-                setTimeout(() => {
-                    setnextRowVsible(prev => prev + 1);
-                }, 600 + (index + 1) * 50);
-            }
-        })
-
-        // table columns
-        for (let i = 0; i < Object.keys(costData[0]).length; i++) {
-            setTimeout(() => {
-                setNextColumnVisible(prev => prev + 1)
-            }, 600 + (costData.length * 50) + i * 100);
-        }
-
-        // cost to state 
-        setTimeout(() => {
-            setTotalCostStyle(`${styles.total_cost} ${styles.visible} ${styles.white}`)
-        }, 600 + (costData.length * 50) + 300);
-
-    }, []);
 
 
     const topTextClassSetter = (index, text, topTextVisible) => {
@@ -128,6 +84,51 @@ export function CostToState() {
         return styles[col_style]
     }
 
+    const calculatetotalCost = (data) => {
+        const totalCost = data.reduce((sum, item) => sum + item.cost, 0);
+        return totalCost.toLocaleString('en-US');
+    };
+
+
+    useEffect(() => {
+
+        // top data
+        if (hasScheduledTimeouts.current) return;
+        hasScheduledTimeouts.current = true;
+
+        topText.forEach((text, index) => {
+            setTimeout(() => {
+                setTopTextVisible(prev => [...prev, text])
+            }, (index + 1) * 100);
+        })
+
+        // table header-row background
+        setTimeout(() => {
+            setnextRowVsible(prev => prev + 1);
+        }, 600 + 50)
+
+        // table row background
+        costData.forEach((infraction, index) => {
+            if (index < costData.length) {
+                setTimeout(() => {
+                    setnextRowVsible(prev => prev + 1);
+                }, 600 + (index + 1) * 50);
+            }
+        })
+
+        // table columns
+        for (let i = 0; i < Object.keys(costData[0]).length; i++) {
+            setTimeout(() => {
+                setNextColumnVisible(prev => prev + 1)
+            }, 600 + (costData.length * 50) + i * 100);
+        }
+
+        // cost to state 
+        setTimeout(() => {
+            setTotalCostStyle(`${styles.total_cost} ${styles.visible} ${styles.white}`)
+        }, 600 + (costData.length * 50) + 300);
+
+    }, []);
 
 
     return (
@@ -157,7 +158,7 @@ export function CostToState() {
                             <tr key={index} className={rowClassSetter(false, index + 1, nextRowVisible)}>
                                 <td className={columnClassStter(false, 1, nextColumnVisible)}><h2>{item.qty}</h2></td>
                                 <td className={columnClassStter(false, 2, nextColumnVisible)} ><h2>{item.category}</h2></td>
-                                <td className={columnClassStter(false, 3, nextColumnVisible)} align="center"><h2>{item.cost}</h2></td>
+                                <td className={columnClassStter(false, 3, nextColumnVisible)} align="center"><h2>{item.cost.toLocaleString('en-US')}</h2></td>
                             </tr>
                         ))}
                     </tbody>
@@ -167,7 +168,7 @@ export function CostToState() {
 
             <DottedLine delay={300} />
 
-            <h2 className={totalCostStyle}>cost To State: {total_cost}</h2>
+            <h2 className={totalCostStyle}>cost To State: {calculatetotalCost(costData)}</h2>
 
             <DottedLine delay={300} />
 

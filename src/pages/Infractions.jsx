@@ -15,7 +15,6 @@ export function Infractions() {
         "Cost To State: 399,750",
         "Cars Impounded: 0",
     ]
-    const [topTextVisible, setTopTextVisible] = useState([])
 
     const infractionData = [
         { infraction: "SPEEDING", unserved: 0, total: 5 },
@@ -28,11 +27,61 @@ export function Infractions() {
         { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
     ];
 
+    const [topTextVisible, setTopTextVisible] = useState([])
+
     const [nextRowVisible, setnextRowVsible] = useState(0) //table header is row 0 table body starts form 1
 
     const [nextColumnVisible, setNextColumnVisible] = useState(1) //first row starts from 1
 
     const hasScheduledTimeouts = useRef(false) //to prevent strict mode from mounting useeffect twice and setting the same timeouts twice (sice we are not clearing each timeout on unmount)
+
+
+    const topTextClassSetter = (index, text, topTextVisible) => {
+        if (topTextVisible.includes(text) && [0, 1].includes(index)) {
+            return `${styles.top_text} ${styles.white} ${styles.visible}`
+        }
+
+        if (topTextVisible.includes(text)) {
+            return `${styles.top_text} ${styles.visible}`
+        }
+
+        return styles.top_text
+    }
+
+    const rowClassSetter = (is_header, index, nextRowVisible) => {
+        if (is_header) {
+            if (index < nextRowVisible) {
+                return `${styles.row_header} ${styles.visible}`
+            }
+
+            return styles.row_header
+        }
+
+        if (index < nextRowVisible) {
+            return `${styles.row_body} ${styles.visible}`
+        }
+
+        return styles.row_body
+    }
+
+    const columnClassStter = (is_header, column_no, nextColumnVisible) => {
+        const col_style = `col_${column_no}`
+
+        if (is_header || column_no == 1) {
+            if (column_no < nextColumnVisible) {
+                return `${styles[col_style]} ${styles.visible_text}`
+            }
+
+            return styles[col_style]
+        }
+
+        if (column_no < nextColumnVisible) {
+            return `${styles[col_style]} ${styles.visible_text} ${styles.white}`
+        }
+
+        return styles[col_style]
+    }
+
 
     useEffect(() => {
 
@@ -69,53 +118,6 @@ export function Infractions() {
 
     }, []);
 
-
-    const topTextClassSetter = (index, text, topTextVisible) => {
-        if (topTextVisible.includes(text) && [0, 1].includes(index)) {
-            return `${styles.top_text} ${styles.white} ${styles.visible}`
-        }
-
-        if (topTextVisible.includes(text)) {
-            return `${styles.top_text} ${styles.visible}`
-        }
-
-        return styles.top_text
-    }
-
-
-    const rowClassSetter = (is_header, index, nextRowVisible) => {
-        if (is_header) {
-            if (index < nextRowVisible) {
-                return `${styles.row_header} ${styles.visible}`
-            }
-
-            return styles.row_header
-        }
-
-        if (index < nextRowVisible) {
-            return `${styles.row_body} ${styles.visible}`
-        }
-
-        return styles.row_body
-    }
-
-    const columnClassStter = (is_header, column_no, nextColumnVisible) => {
-        const col_style = `col_${column_no}`
-
-        if (is_header || column_no == 1) {
-            if (column_no < nextColumnVisible) {
-                return `${styles[col_style]} ${styles.visible_text}`
-            }
-
-            return styles[col_style]
-        }
-
-        if (column_no < nextColumnVisible) {
-            return `${styles[col_style]} ${styles.visible_text} ${styles.white}`
-        }
-
-        return styles[col_style]
-    }
 
     return (
         <div className={styles.infractions}>

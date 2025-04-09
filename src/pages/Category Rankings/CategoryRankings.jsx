@@ -7,17 +7,15 @@ import { Footer } from "../../components/Footer"
 import styles from "./CategoryRankings.module.css"
 
 export function CategoryRankings() {
-    const { category } = useParams()
-    console.log(category)
 
     const buttonData = [
         { symbol: "Esc", text: "Back" }
     ]
+    
     const topText = [
-        `Category: ${category}`,
+        `Category: ${useParams().category}`,
         "Single Pursuit",
     ]
-    const [topTextVisible, setTopTextVisible] = useState([])
 
     const rankingsDetails = {
         "PURSUIT LENGTH": [{ rank: 2, name: 'BUll', car: 'Mercedes-Benz SLR McLaren', time: '28:00' },
@@ -31,43 +29,17 @@ export function CategoryRankings() {
         { rank: 10, name: 'Earl', car: 'Mitsubishi Lancer EVOLUTION VIII', time: '7:00' },
         { rank: 11, name: 'Baron', car: 'Porsche Cayman S', time: '6:00' },]
     };
-    const currentcategory = rankingsDetails[category]
+
+    const [topTextVisible, setTopTextVisible] = useState([])
+
+    const currentcategory = rankingsDetails[useParams().category]
 
     const [nextRowVisible, setnextRowVsible] = useState(0) //table header is row 0 table body starts form 1
 
     const [nextColumnVisible, setNextColumnVisible] = useState(1) //first row starts from 1
 
-
-
     const hasScheduledTimeouts = useRef(false) //to prevent strict mode from mounting useeffect twice and setting the same timeouts twice (sice we are not clearing each timeout on unmount)
-    useEffect(() => {
 
-        // top data
-        if (hasScheduledTimeouts.current) return;
-        hasScheduledTimeouts.current = true;
-
-        topText.forEach((text, index) => {
-            setTimeout(() => {
-                setTopTextVisible(prev => [...prev, text])
-            }, (index + 1) * 100);
-        })
-
-        // table row background
-        currentcategory.forEach((infraction, index) => {
-            if (index < currentcategory.length) {
-                setTimeout(() => {
-                    setnextRowVsible(prev => prev + 1);
-                }, topText.length + 200 + (index + 1) * 50);
-            }
-        })
-
-        // table columns
-        for (let i = 0; i < Object.keys(currentcategory[0]).length; i++) {
-            setTimeout(() => {
-                setNextColumnVisible(prev => prev + 1)
-            }, topText.length + 200 + currentcategory.length * 50 + i * 100);
-        }
-    })
 
     const topTextClassSetter = (index, text, topTextVisible) => {
         if (topTextVisible.includes(text) && [0, 1].includes(index)) {
@@ -114,6 +86,37 @@ export function CategoryRankings() {
 
         return styles[col_style]
     }
+
+
+    useEffect(() => {
+
+        // top data
+        if (hasScheduledTimeouts.current) return;
+        hasScheduledTimeouts.current = true;
+
+        topText.forEach((text, index) => {
+            setTimeout(() => {
+                setTopTextVisible(prev => [...prev, text])
+            }, (index + 1) * 100);
+        })
+
+        // table row background
+        currentcategory.forEach((infraction, index) => {
+            if (index < currentcategory.length) {
+                setTimeout(() => {
+                    setnextRowVsible(prev => prev + 1);
+                }, topText.length + 200 + (index + 1) * 50);
+            }
+        })
+
+        // table columns
+        for (let i = 0; i < Object.keys(currentcategory[0]).length; i++) {
+            setTimeout(() => {
+                setNextColumnVisible(prev => prev + 1)
+            }, topText.length + 200 + currentcategory.length * 50 + i * 100);
+        }
+    })
+
 
     return (
         <div className={styles.categoryRanking}>
