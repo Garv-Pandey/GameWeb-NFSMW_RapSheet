@@ -7,15 +7,16 @@ export function Button({ symbol, text }) {
     }
 
     return (
-        <button type={styles.button} onClick={handleClick} className={styles.button}>
-            <div className={styles.symbol}>
-                <h3>{symbol}</h3>
-            </div>
+        <></>
+        // <button type={styles.button} onClick={handleClick} className={styles.button}>
+        //     <div className={styles.symbol}>
+        //         <h3>{symbol}</h3>
+        //     </div>
 
-            <div className={styles.text}>
-                <h3>{text}</h3>
-            </div>
+        //     <div className={styles.text}>
+        //         <h3>{text}</h3>
+        //     </div>
 
-        </button>
+        // </button>
     )
 }
