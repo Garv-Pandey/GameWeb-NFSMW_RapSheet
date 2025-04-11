@@ -17,14 +17,14 @@ export function Infractions() {
     ]
 
     const infractionData = [
-        { infraction: "SPEEDING", unserved: 0, total: 5 },
-        { infraction: "EXCESSIVE SPEEDING", unserved: 1, total: 13 },
-        { infraction: "RECKLESS DRIVING", unserved: 0, total: 2 },
-        { infraction: "RAMMING A POLICE VEHICLE", unserved: 0, total: 16 },
-        { infraction: "HIT AND RUN", unserved: 0, total: 9 },
-        { infraction: "DAMAGE TO PROPERTY", unserved: 0, total: 18 },
-        { infraction: "RESISTING ARREST", unserved: 1, total: 24 },
-        { infraction: "DRIVING OFF ROADWAY", unserved: 0, total: 19 },
+        { infraction: "SPEEDING", unserved: 8, total: 8 },
+        { infraction: "EXCESSIVE SPEEDING", unserved: 17, total: 17 },
+        { infraction: "RECKLESS DRIVING", unserved: 3, total: 3 },
+        { infraction: "RAMMING A POLICE VEHICLE", unserved: 23, total: 23 },
+        { infraction: "HIT AND RUN", unserved: 11, total: 11 },
+        { infraction: "DAMAGE TO PROPERTY", unserved: 26, total: 26 },
+        { infraction: "RESISTING ARREST", unserved: 31, total: 31 },
+        { infraction: "DRIVING OFF ROADWAY", unserved: 27, total: 27 },
     ];
 
     const [topTextVisible, setTopTextVisible] = useState([])

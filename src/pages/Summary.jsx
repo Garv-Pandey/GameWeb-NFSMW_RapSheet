@@ -10,17 +10,17 @@ export function Summary() {
     ]
 
     const topText = [
-        "Name: gabbu",
-        "Bounty: 403,300",
-        "Cost To State: 399,750",
+        "Name: GABBU",
+        "Bounty: 18,994,300",
+        "Cost To State: 3,133,675",
         "Cars Impounded: 0"
     ]
 
     const bottomTextBlocks = [
-        ["Infractions", "Unserverd: 31", "Served: 0"],
-        ["Pursuits", "Time Evaded: 8", "Time Busted: 0"],
-        ["Fines", "Fines Due: 7,200", "Fines Paid: 0"],
-        ["Police Vehicles", "Damaged: 41", "Immobilized: 43"],
+        ["Infractions", "Unserverd: 146", "Served: 0"],
+        ["Pursuits", "Time Evaded: 34", "Time Busted: 0"],
+        ["Fines", "Fines Due: 35,425", "Fines Paid: 0"],
+        ["Police Vehicles", "Damaged: 318", "Immobilized: 335"],
     ]
 
     const [topTextVisible, setTopTextVisible] = useState([])
@@ -88,7 +88,7 @@ export function Summary() {
                 <DottedLine delay={600} />
 
                 <div className={bannerClass}>
-                    <h2>Minor COde INfractions: Perform Routine Check For Citations and Infractions if encountered</h2>
+                    <h2>Major code infractions: Perform routine check for citations and infractions if encountered. Proceed with caution.</h2>
                 </div>
 
                 <DottedLine delay={600} />

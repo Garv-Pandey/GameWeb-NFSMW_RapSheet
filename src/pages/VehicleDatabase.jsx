@@ -18,16 +18,16 @@ export function VehicleDatabase() {
 
     const vehicleData = [
         {
-            name: "Toyota Corolla GT-S",
-            status: "<CONFIRMED TO DRIVE>",
-            bounty: "6,580,800",
-            finesDue: "650",
-            unservedInfractions: "2",
-            timesEvaded: "26",
-            timesBusted: "1",
+            name: "Cobalt SS",
+            status: "<SUSPECTED TO DRIVE>",
+            bounty: "1,767,100",
+            finesDue: "14,425",
+            unservedInfractions: "65",
+            timesEvaded: "17",
+            timesBusted: "0",
         },
         {
-            name: "Mitsubishi Eclipse",
+            name: "Mercedes-Benz SLR McLaren",
             status: "<SUSPECTED TO DRIVE>",
             bounty: "0",
             finesDue: "0",
@@ -36,21 +36,39 @@ export function VehicleDatabase() {
             timesBusted: "0",
         },
         {
-            name: "Mitsubishi Lancer EVOLUTION VIII",
-            status: "<SUSPECTED TO DRIVE>",
-            bounty: "0",
-            finesDue: "0",
-            unservedInfractions: "0",
-            timesEvaded: "0",
+            name: "Subaru Impreza WRX STi",
+            status: "< SUSPECTED TO DRIVE >",
+            bounty: "12,251,750",
+            finesDue: "17,550",
+            unservedInfractions: "69",
+            timesEvaded: "14",
             timesBusted: "0",
         },
+        {
+            name: "Lamborghini Gallardo",
+            status: "< SUSPECTED TO DRIVE >",
+            bounty: "235,450",
+            finesDue: "1,125",
+            unservedInfractions: "5",
+            timesEvaded: "2",
+            timesBusted: "0",
+        },
+        {
+            name: "BMW M3 GTR",
+            status: "< SUSPECTED TO DRIVE >",
+            bounty: "4,740,000",
+            finesDue: "2,325",
+            unservedInfractions: "7",
+            timesEvaded: "1",
+            timesBusted: "0",
+        }
     ];
 
     const [topTextVisible, setTopTextVisible] = useState([])
 
     const [isVisible, setIsVisible] = useState(false);
 
-    
+
     const topTextAnimeClassSetter = (index, text, topTextVisible) => {
         if (topTextVisible.includes(text) && [0, 1].includes(index)) {
             return `${styles.top_text} ${styles.white} ${styles.visible}`
@@ -90,13 +108,13 @@ export function VehicleDatabase() {
                 ))}
             </ul>
 
-            <DottedLine delay={600}/>
+            <DottedLine delay={600} />
 
             <ul className={`${styles.scrollable_data} ${isVisible ? `${styles.scrollable_data} ${styles.visible}` : ''}`}>
 
                 {vehicleData.map((vehicle, index) =>
                     <li key={index} className={styles.vehicle_info}>
-                        <h2 className={styles.heading} style={{color: 'white'}}>{vehicle.name}</h2>
+                        <h2 className={styles.heading} style={{ color: 'white' }}>{vehicle.name}</h2>
                         <h2 className={styles.heading}>{vehicle.status}</h2>
                         <h2 className={styles.info}>Bounty: {vehicle.bounty}</h2>
                         <h2 className={styles.info}>Times Evaded: {vehicle.timesEvaded}</h2>
@@ -108,7 +126,7 @@ export function VehicleDatabase() {
 
             </ul>
 
-            <DottedLine delay={600}/>
+            <DottedLine delay={600} />
             <Footer buttons={buttonData} />
         </div>
     )

@@ -15,25 +15,25 @@ export function CostToState() {
     ]
 
     const costData = [
-        { qty: 3547, category: "DAMAGE TO PROPERTY", cost: 531850 },
-        { qty: 39, category: "INSURANCE CLAIMS", cost: 19500 },
-        { qty: 459, category: "PATROL VEHICLES DEPLOYED", cost: 114750 },
-        { qty: 98, category: "SPECIAL UNITS DEPLOYED", cost: 44100 },
-        { qty: 142, category: "DAMAGED POLICE VEHICLES", cost: 35500 },
-        { qty: 132, category: "IMMOBILIZED POLICE VEHICLES", cost: 660000 },
-        { qty: 67, category: "ROADBLOCKS DEPLOYED", cost: 33500 },
-        { qty: 109, category: "SPIKE STRIPS DEPLOYED", cost: 27250 },
-        { qty: 10, category: "HELICOPTERS DEPLOYED", cost: 20000 },
+        { qty: 4946, category: "DAMAGE TO PROPERTY", cost: 869875 },
+        { qty: 72, category: "INSURANCE CLAIMS", cost: 36000 },
+        { qty: 713, category: "PATROL VEHICLES DEPLOYED", cost: 178250 },
+        { qty: 269, category: "SPECIAL UNITS DEPLOYED", cost: 121050 },
+        { qty: 318, category: "DAMAGED POLICE VEHICLES", cost: 79500 },
+        { qty: 335, category: "IMMOBILIZED POLICE VEHICLES", cost: 1675000 },
+        { qty: 147, category: "ROADBLOCKS DEPLOYED", cost: 73500 },
+        { qty: 250, category: "SPIKE STRIPS DEPLOYED", cost: 62500 },
+        { qty: 19, category: "HELICOPTERS DEPLOYED", cost: 38000 },
     ];
 
     const [topTextVisible, setTopTextVisible] = useState([])
-    
+
     const [nextRowVisible, setnextRowVsible] = useState(0) //table header is row 0 table body starts form 1
-    
+
     const [nextColumnVisible, setNextColumnVisible] = useState(1) //first row starts from 1
-    
+
     const [totalCostStyle, setTotalCostStyle] = useState(styles.total_cost)
-    
+
     const hasScheduledTimeouts = useRef(false) //to prevent strict mode from mounting useeffect twice and setting the same timeouts twice (sice we are not clearing each timeout on unmount)
 
 

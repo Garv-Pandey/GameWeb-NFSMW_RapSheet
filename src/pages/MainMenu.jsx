@@ -11,14 +11,14 @@ export function MainMenu() {
     { symbol: "↵", text: "Accept" },
   ]
 
-  const stats_text = ["Name: gabbu",
-    "Bounty: 33,591,683",
-    "Cost To State: 5,399,750",
-    "Fines Due: 43,200",
-    "Pursuits Evaded: 44",
+  const stats_text = ["Name: GABBU",
+    "Bounty: 18,994,300",
+    "Cost To State: 3,133,675",
+    "Fines Due: 35,425",
     "Busted: 0",
+    "Pursuits Evaded: 34",
     "Cars Impounded: 0",
-    "Cars Monitored: 11"]
+    "Cars Monitored: 5"]
   
 
   const pages = [{ link: "/summary", text: "Summary" },

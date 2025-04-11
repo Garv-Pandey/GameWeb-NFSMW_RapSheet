@@ -63,7 +63,7 @@ h3 {
     flex-direction: row;
     flex-wrap: nowrap;
 
-    margin: 0.5rem 0rem;
+    margin: 1rem 0rem;
 
     opacity: 0;
 }
@@ -93,7 +93,7 @@ h3 {
 
 .car {
     color: white;
-    min-width: 50%;
+    min-width: 100%;
 }
 
 .detail {

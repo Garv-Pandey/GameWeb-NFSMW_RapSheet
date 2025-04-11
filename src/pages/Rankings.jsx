@@ -16,15 +16,15 @@ export function Rankings() {
     ]
 
     const rankingCategories = [
-        { label: "PURSUIT LENGTH", value: 1 },
-        { label: "TOTAL POLICE VEHICLES INVOLVED", value: 1 },
-        { label: "POLICE VEHICLES DAMAGED", value: 1 },
-        { label: "POLICE VEHICLES IMMOBILIZED", value: 1 },
-        { label: "ROADBLOCKS DODGED", value: 1 },
-        { label: "SPIKE STRIPS DODGED", value: 1 },
-        { label: "COST TO STATE ACHIEVED", value: 1 },
+        { label: "PURSUIT LENGTH", value: 6 },
+        { label: "TOTAL POLICE VEHICLES INVOLVED", value: 3 },
+        { label: "POLICE VEHICLES DAMAGED", value: 3 },
+        { label: "POLICE VEHICLES IMMOBILIZED", value: 2 },
+        { label: "ROADBLOCKS DODGED", value: 4 },
+        { label: "SPIKE STRIPS DODGED", value: 5 },
+        { label: "COST TO STATE ACHIEVED", value: 4 },
         { label: "INFRACTIONS RECORDED", value: 1 },
-        { label: "HELICOPTERS DEPLOYED", value: 1 },
+        { label: "HELICOPTERS DEPLOYED", value: 6 },
         { label: "PURSUIT BOUNTY ACHIEVED", value: 1 },
     ];
     
