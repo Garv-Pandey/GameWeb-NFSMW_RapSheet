@@ -304,7 +304,7 @@ export function CategoryRankings() {
 
             </ul>
 
-            <DottedLine />
+            <DottedLine delay={topText.length + 100} />
 
             <div className={styles.categoryDetail_scrollable}>
                 <table className={styles.categoryDetail_table}>
@@ -322,7 +322,7 @@ export function CategoryRankings() {
 
             </div>
 
-            <DottedLine delay={400} />
+            <DottedLine delay={topText.length * 50 + 100} />
 
             <Footer buttons={buttonData} />
 

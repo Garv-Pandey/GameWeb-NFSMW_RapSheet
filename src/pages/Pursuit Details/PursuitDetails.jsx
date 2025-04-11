@@ -139,7 +139,6 @@ export function PursuitDetails() {
 
     useEffect(() => {
 
-        // top data
         if (hasScheduledTimeouts.current) return;
         hasScheduledTimeouts.current = true;
 
@@ -155,7 +154,7 @@ export function PursuitDetails() {
             if (index < currentPursuit.length) {
                 setTimeout(() => {
                     setnextRowVsible(prev => prev + 1);
-                }, topText.length + 200 + (index + 1) * 50);
+                }, topText.length + 100 + 100 + (index + 1) * 50);
             }
         })
 
@@ -163,7 +162,7 @@ export function PursuitDetails() {
         for (let i = 0; i < Object.keys(currentPursuit[0]).length; i++) {
             setTimeout(() => {
                 setNextColumnVisible(prev => prev + 1)
-            }, topText.length + 200 + currentPursuit.length * 50 + i * 100);
+            }, (topText.length + 100 + 100 + currentPursuit.length * 50) + (i + 1) * 100);
         }
 
     })
@@ -179,7 +178,7 @@ export function PursuitDetails() {
                 ))}
             </ul>
 
-            <DottedLine delay={400} />
+            <DottedLine delay={topText.length + 100} />
 
             <div className={styles.pursuitDetail_scrollable}>
                 <table className={styles.pursuitDetail_table}>
@@ -195,7 +194,7 @@ export function PursuitDetails() {
 
             </div>
 
-            <DottedLine delay={400} />
+            <DottedLine delay={topText.length + 100} />
 
             <Footer buttons={buttonData} />
         </div>
