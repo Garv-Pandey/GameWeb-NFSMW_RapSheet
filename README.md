@@ -1,12 +1,28 @@
-# React + Vite
+# 🏁 NFSMW Rap Sheet — React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive frontend project recreating the **Rap Sheet UI** from *Need For Speed: Most Wanted* (2005), built using **React** and **Vite**.
 
-Currently, two official plugins are available:
+🚀 **Live Site:** [nfsmw-rapsheet.netlify.app](https://nfsmw-rapsheet.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📸 Overview
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project brings the iconic **Rap Sheet** from the legendary racing game *Need for Speed: Most Wanted* to the web. Designed to be both nostalgic and functional, the interface adapts to different screen sizes — from mobile phones to desktops — ensuring a responsive user experience.
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** — Component-based UI
+- **Vite** — Fast build tool for modern frontend development
+- **CSS Modules** — Scoped and modular styling
+- **Netlify** — Deployment and hosting
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+You are free to use, modify, and distribute this project for personal, educational, and non-commercial purposes. If you use any part of this project, giving credit is appreciated.
+
+> This project is a fan-made recreation inspired by *Need for Speed: Most Wanted (2005)* by EA Games. All game-related assets and names belong to their respective owners. No copyright infringement intended.
